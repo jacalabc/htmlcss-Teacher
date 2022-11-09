@@ -13,6 +13,18 @@
         #myText{
             color: red;
         }
+        .class1{
+            color: red;
+            color: red;
+            color: red;
+            color: red;
+        }
+        .class2{
+            color: red;
+            color: red;
+            color: red;
+            color: red;
+        }
     </style>
     
 </head>
@@ -30,6 +42,27 @@
         // h1 變紅色
         /* 幫我把 id#myText 的css 的color 設定為blue */
         document.getElementById('myText').style.color="blue";
+
+        // myBtn的css的顏色 
+        document.getElementById('myBtn').style.color="blue";
+
+        // addEventListener
+        // 事件監聽('click',後續動作)
+
+        // 麥當勞('買大麥克',後續動作)
+        // 後續動作=>  
+        // function(){
+        // 店員給我大麥克
+        // }
+        
+        // 後續動作語法 function(){} 語法
+        
+
+        document.getElementById('myBtn').addEventListener('click',function(){
+            alert('touch btn ok');
+        });
+
+        
         
     </script>
 </body>
