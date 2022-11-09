@@ -33,12 +33,18 @@
         // 1.innerText 改文字
         // 2.textContent 改文字
         // 3.innerHtml 改成html
+        // 抓的東西
+
+        // 
+        const myText1 = document.getElementById('myText1');
+        console.log(myText1);
+        console.log('hello',myText1);
 
         // document.getElementById('myText').textContent = "12345";
         document.getElementById('myText1').innerText = "<hr>12345";
-        document.getElementById('myText2').innerText = "67890";
-        document.getElementById('myText3').innerHTML = "<br>html<hr>";
-        const myText = document.getElementById('myText');
+        document.getElementById('myText2').textContent = "<hr>67890";
+        document.getElementById('myText3').innerHTML = "<hr>html";
+      
         
     </script>
 </body>
