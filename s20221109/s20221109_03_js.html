@@ -30,11 +30,17 @@
 </head>
 <body>
     <h1 id="myText">Hello JS</h1>
-    <button id="myBtn">myBtn</button>
+    <!-- <button id="myBtn">myBtn</button> -->
+    <button  onclick="myFun();">myBtn</button>
  
     
     <!-- 放在/body 結束body 上一行 -->
     <script>
+
+        function myFun(){
+            alert('hello myFun ok');
+        }
+
         // 跳出彈跳視窗 alert
         alert('Hello JS');
         // 我要買麥當勞('大麥克');
