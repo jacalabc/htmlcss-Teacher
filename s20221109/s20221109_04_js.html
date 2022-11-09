@@ -15,7 +15,7 @@
         // let
         let i = 1;
         i = i + 1;
-        // php echo vs console
+        // php echo vs console.log
         // javascript console.log()
         // java vs javascript js
         // 牛 vs 牛蒡
@@ -36,17 +36,20 @@
         // 抓的東西
 
         // 
-        const myText1 = document.getElementById('myText1');
-        console.log(myText1);
-        console.log('hello1',myText1);
-        console.log('hello2',myText1);
-        console.log('hello3',myText1);
-        console.log('hello4',myText1);
+
+        const myText1Input = document.getElementById('myText1');
+        console.log(myText1Input);
 
         // document.getElementById('myText').textContent = "12345";
         document.getElementById('myText1').innerText = "<hr>12345";
         document.getElementById('myText2').textContent = "<hr>67890";
         document.getElementById('myText3').innerHTML = "<hr>html";
+        myText1Input.innerText = 'change ok';
+
+        // const 大包包 = "nike";
+        // 大包包 = "adidas"; // 錯的 常數是不變的
+
+        // 大包包.小盒子 = "xxxxx"; // ok 的 我可以裡面的小東西
       
         
     </script>
