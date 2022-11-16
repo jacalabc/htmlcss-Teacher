@@ -9,6 +9,12 @@
 </head>
 
 <body>
+    <div>
+        <p>Num1 = <span id="mySpan1">111</span> </p>
+    </div>
+    <div>
+        <p>Num2 = <span id="mySpan2">222</span></p>
+    </div>
     <!-- 常見程式語言畫面清除 -->
     <!-- 1. cls -->
     <!-- 2. ctrl + l -->
@@ -21,29 +27,37 @@
     <!-- 常見離開畫面 -->
     <!-- exit -->
 
-    
+
 
     <script>
+        let getNum1 = Number(prompt('num1?'));
+        let getNum2 = Number(prompt('num2?'));
+
         // 常見變數狀態
         // string
         myText1 = 'test';
-        console.log('myText1',myText1);
-        console.log('myText1 typeof',typeof(myText1));
+        console.log('myText1', myText1);
+        console.log('myText1 typeof', typeof (myText1));
 
         // number
         myNum1 = 123;
         myNum2 = 123.45;
-        console.log('myNum1',myNum1);
-        console.log('myNum1 typeof',typeof(myNum1));
-        console.log('myNum2',myNum2);
-        console.log('myNum2 typeof',typeof(myNum2));
+        console.log('myNum1', myNum1);
+        console.log('myNum1 typeof', typeof (myNum1));
+        console.log('myNum2', myNum2);
+        console.log('myNum2 typeof', typeof (myNum2));
 
         // 小練習 prompt num1
         // 小練習 prompt num2
+            const mySpan1 = document.getElementById('mySpan1');
+            const mySpan2 = document.getElementById('mySpan2');
         // ====================
         // 畫面顯示 num1 = xxx
         // 畫面顯示 num2 = xxx
         // 畫面顯示 num1 + num2 = xxx
+        //   要記得轉型
+            let sum = getNum1 + getNum2
+            console.log(sum);
 
 
     </script>
