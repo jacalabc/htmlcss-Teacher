@@ -9,11 +9,18 @@
     <!-- element -->
     <!-- text -->
     <title>Document</title>
+    <style>
+        .box{
+            height: 2000px;
+        }
+    </style>
 </head>
 <body>
     <h1 id="myH1">test</h1>
     <h2 id="myH2">test</h2>
     <h3 id="myH3">test</h3>
+    <div class="box">box</div>
+    <button type="button" id="myBtn">myBtn</button>
     <script>
         // 練習 抓出location.href 顯示h1
         // 練習 抓出screen.width 顯示h2
@@ -26,8 +33,21 @@
         console.log('width',width);
         document.getElementById('myH2').textContent = width;
         document.getElementById('myH3').innerHTML = '<hr>55688';
+        // button 方法一 addEventListener
+        document.getElementById('myBtn').addEventListener('click',function(){
+            console.log('myBtn ok');
+            // replace 沒法使用 back 回上一頁
+            // Location Object Methods 方法 函示
+            location.assign('./hello.html');
+            // location.replace('https://www.w3schools.com');
+            
+            // 跳到id
+            // location.href = "#myH1";
 
-
+            // 切換頁面 .href 變數 Location Object Properties
+            location.href = "./s20221116_03_history.html";
+        });
+        
 
 
 
