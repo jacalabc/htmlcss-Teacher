@@ -13,6 +13,7 @@
 <body>
     <h1 id="myH1">test</h1>
     <h2 id="myH2">test</h2>
+    <h3 id="myH3">test</h3>
     <script>
         // 練習 抓出location.href 顯示h1
         // 練習 抓出screen.width 顯示h2
@@ -20,6 +21,12 @@
         console.log('url',url);
         document.getElementById('myH1').innerText = url;
         console.log('document',document);
+
+        let width = screen.width;
+        console.log('width',width);
+        document.getElementById('myH2').textContent = width;
+        document.getElementById('myH3').innerHTML = '<hr>55688';
+
 
 
 
