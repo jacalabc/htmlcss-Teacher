@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <h3>某某醫院</h3>
     <p>目前人數:<span id="people">0</span></p>
     <p>額滿:<span id="isFull">可以掛號</span></p>
@@ -65,13 +65,29 @@
         // 紅燈
         // 綠燈
         // 人數
+        function setStatus(addPeople) {
+            // addPeople = 200;
+            people = people + addPeople;
+            if (people > 100) {
+                isFull = true;
+            }
+            console.log('people', people);
+            console.log('isFull', isFull);
+            peopleP.textContent = people;
+            if (isFull) {
+                isFullP.textContent = '額滿了';
+                isFullP.style.color = 'red';【
+            } else {
+                isFullP.textContent = '可以掛號';
+            }
+        }
+
         const peopleP = document.getElementById('people');
         const isFullP = document.getElementById('isFull');
 
         let isFull = false;
         let people = 0;
         let addPeople = 0
-        
 
         console.log('init people', people);
         console.log('init isFull', false);
@@ -80,21 +96,6 @@
         // people = people + addPeople ;
         // isFull = false;
 
-        function setStatus(addPeople) {
-            // addPeople = 200;
-            people = people + addPeople;
-            if(people>100){
-                isFull = true;
-            }
-            console.log('people', people);
-            console.log('isFull', isFull);
-            peopleP.textContent = people;
-            if(isFull){
-                isFullP.textContent = '額滿了';
-            }else{
-                isFullP.textContent = '可以掛號';
-            }
-        }
         setStatus(99);
         setStatus(1);
         setStatus(1);
