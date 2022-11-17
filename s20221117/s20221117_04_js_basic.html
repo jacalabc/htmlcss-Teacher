@@ -11,6 +11,7 @@
 <body>
 
     <h3>某某醫院</h3>
+    <h3><span id="hello">醫生資料</span></h3>
     <p>目前人數:<span id="people">0</span></p>
     <p>額滿:<span id="isFull">可以掛號</span></p>
 
@@ -21,9 +22,26 @@
          * number age 年齡
          * 
         */
-        function sayHello(name, age) {
+        //php 字串相加 .
+        //js 字串相加 +
 
+        function sayHello(name, age) {
+            // php字串相加.            
+            // js 字串相加 +
+            myStr1 = "hello"+name+"hello"+name+name+age;
+
+            // php ""字串含有變數
+            // myStr2 = "hello $name";
+            // js `${變數}`
+            myStr2 = `hello ${name} :)) age = ${age}`;
+            
+            console.log(myStr1);
+            console.log(myStr2);
         }
+
+        sayHello('kai',18);
+        
+        
 
         // document.write('12345');
         let x = 10;
@@ -65,6 +83,8 @@
         // 紅燈
         // 綠燈
         // 人數
+        
+        
         function setStatus(addPeople) {
             // addPeople = 200;
             people = people + addPeople;
@@ -76,7 +96,7 @@
             peopleP.textContent = people;
             if (isFull) {
                 isFullP.textContent = '額滿了';
-                isFullP.style.color = 'red';【
+                isFullP.style.color = 'red';
             } else {
                 isFullP.textContent = '可以掛號';
             }
