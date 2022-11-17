@@ -33,13 +33,18 @@
             // php ""字串含有變數
             // myStr2 = "hello $name";
             // js `${變數}`
-            myStr2 = `hello ${name} :)) age = ${age}`;
+            // myStr2 = `hello ${name} :)) age = ${age}`;
+            myStr2 = `hello ${name} :)) age = ${age}\n`;
             
             console.log(myStr1);
-            console.log(myStr2);
+            console.log('myStr2',myStr2);
+            helloP.textContent = myStr2;
         }
 
+        const helloP = document.getElementById('hello');
+        
         sayHello('kai',18);
+       
         
         
 
@@ -72,6 +77,7 @@
         console.log('a-b', a - b);
         console.log('a*b', a * b);
         console.log('a/b', a / b);
+        
 
         //boolean
         //flag
