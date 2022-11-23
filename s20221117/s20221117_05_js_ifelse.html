@@ -7,16 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .my-red{
+        .my-red {
             color: red;
         }
-        .my-blue{
+
+        .my-blue {
             color: blue;
         }
-        .my-font{
+
+        .my-font {
             font-size: 30px;
         }
-
     </style>
 </head>
 
@@ -27,21 +28,24 @@
     <!-- promt 輸入分數  -->
     <!-- 顯示 你的成績 與得分 p -->
     <script>
+
+
         // 三元運算子
         let x = 5;
         let isBig = false;
-        if(x>10){
+        if (x > 10) {
             console.log("x>10");
-        }else{
+        } else {
             console.log("x<10");
         }
-        (x>10) ? console.log("x>10"):console.log("x<10");
+        (x > 10) ? console.log("x>10") : console.log("x<10");
 
         const scoreP = document.getElementById('score');
         const resultP = document.getElementById('result');
 
         let score = prompt('請輸入您的分數');
         let result = "";
+
         if (score > 80) {
             // console.log('A');
             result = "A";
@@ -57,7 +61,8 @@
         }
         scoreP.textContent = score;
         resultP.textContent = result;
-        
+        ;
+
 
     </script>
 </body>
