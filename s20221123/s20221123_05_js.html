@@ -39,18 +39,25 @@
         console.log('constNum', constNum);
 
         // var let 
-        // var 全域變數 function內可以有區域變數的情況
+        // var 全域變數的情況 function內可以有區域變數
         var varX = 2; //外部varX 別人寫的
         function cal() {
             // console.log('ex varX', varX);
-            var varX = 5, varY = 1; //我們自己寫的
+            let varX = 5, varY = 1; //我們自己寫的
             console.log('varX+varY', varX + varY);
         }
         cal();
         console.log('varX', varX);
 
-        //let
-        
+        //let {}內可以有區域變數的情況
+        var a = 5, b = 0;
+        let letX = 2, letY = 0;
+        {
+            var c = a + b;
+            let letZ = letX + letY;
+        }
+        console.log('c', c);
+        console.log('letZ', letZ);
 
 
 
