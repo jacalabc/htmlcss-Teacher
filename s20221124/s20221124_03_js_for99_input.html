@@ -14,7 +14,7 @@
     <input type="text" id="num2" value="7">
     <button type="button" id="myBtn" onclick="myBtnFun();">myBtn</button>
     <div id="myDiv">
-
+        null
     </div>
     <br><br>
 
@@ -40,7 +40,7 @@
             // 2.document write => error 清空
             // 3.document write => res string 組合
             // 4.div innerHTML 放入res string
-
+            
             for (let i = 1; i <= getNum1; i++) {
                 for (let j = 1; j <= getNum2; j++) {
 
@@ -71,6 +71,7 @@
             }
 
             console.log(res);
+            // myDiv.innerText = res;
             myDiv.innerHTML = res;
 
         }
