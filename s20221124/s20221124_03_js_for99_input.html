@@ -12,7 +12,10 @@
     <h3>9 9 乘法表</h3>
     <input type="text" id="num1" value="6">
     <input type="text" id="num2" value="7">
-    <button type="button" id="myBtn">myBtn</button>
+    <button type="button" id="myBtn" onclick="myBtnFun();">myBtn</button>
+    <div id="myDiv">
+
+    </div>
     <br><br>
 
     <script>
@@ -22,15 +25,66 @@
         // 輸入兩個數字 num1 x num2 乘法表
         // input or prompt 
 
+        // function
+        // document.write function 後 存在的html 會被清空
+        function myBtnFun() {
+            let getNum1 = num1Input.value;
+            let getNum2 = num2Input.value;
+            console.log('getNum1', getNum1);
+            console.log('getNum2', getNum2);
+            // 01 * 01 = 01 ......
+            // 02 * 01 = 02 ......
+            let res = "";
+
+            // 1.function onclick
+            // 2.document write => error 清空
+            // 3.document write => res string 組合
+            // 4.div innerHTML 放入res string
+
+            for (let i = 1; i <= getNum1; i++) {
+                for (let j = 1; j <= getNum2; j++) {
+
+                    // i 1.number -> string
+                    let iStr = i.toString();
+                    // i 2.string -> 補0
+                    iStr = iStr.padStart(2, "0");
+
+                    // j 1.number -> string
+                    let jStr = j.toString();
+                    // j 2.string -> 補0
+                    jStr = jStr.padStart(2, "0");
+
+                    // i * j
+                    // j 1.number -> string
+                    let result = i * j;
+                    let resultStr = result.toString();
+                    // j 2.string -> 補0
+                    resultStr = resultStr.padStart(2, "0");
+
+                    // let str = `${i} * ${j} = ${i*j} ;`;
+                    // let str = `${iStr} * ${jStr} = ${resultStr} &nbsp;&nbsp;&nbsp;`;
+                    res = res + `${iStr} * ${jStr} = ${resultStr} &nbsp;&nbsp;&nbsp;`;
+
+                }
+                res = res + "<br>";
+                // document.write('<br>');
+            }
+
+            console.log(res);
+            myDiv.innerHTML = res;
+
+        }
+
         // 綁定
         const num1Input = document.getElementById('num1');
         const num2Input = document.getElementById('num2');
         const myBtn = document.getElementById('myBtn');
+        const myDiv = document.getElementById('myDiv');
 
         let num1 = num1Input.value;
         let num2 = num2Input.value;
-        console.log('num1',num1);
-        console.log('num2',num2);
+        console.log('num1', num1);
+        console.log('num2', num2);
 
         // num1 num2
         // let num1 = prompt('num1?');
@@ -50,23 +104,23 @@
                 // i 1.number -> string
                 let iStr = i.toString();
                 // i 2.string -> 補0
-                iStr = iStr.padStart(2,"0");
+                iStr = iStr.padStart(2, "0");
 
                 // j 1.number -> string
-                 let jStr = j.toString();
+                let jStr = j.toString();
                 // j 2.string -> 補0
-                jStr = jStr.padStart(2,"0");
+                jStr = jStr.padStart(2, "0");
 
                 // i * j
                 // j 1.number -> string
-                let result = i*j;
+                let result = i * j;
                 let resultStr = result.toString();
                 // j 2.string -> 補0
-                resultStr = resultStr.padStart(2,"0");
+                resultStr = resultStr.padStart(2, "0");
 
                 // let str = `${i} * ${j} = ${i*j} ;`;
                 let str = `${iStr} * ${jStr} = ${resultStr} &nbsp;&nbsp;&nbsp;`;
-                
+
                 document.write(str);
             }
             document.write('<br>');
