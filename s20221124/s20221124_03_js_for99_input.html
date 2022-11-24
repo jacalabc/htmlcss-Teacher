@@ -10,6 +10,11 @@
 
 <body>
     <h3>9 9 乘法表</h3>
+    <input type="text" id="num1" value="6">
+    <input type="text" id="num2" value="7">
+    <button type="button" id="myBtn">myBtn</button>
+    <br><br>
+
     <script>
         // 9 9 乘法表 7 x 8  6 x 3
         // 練習
@@ -17,10 +22,19 @@
         // 輸入兩個數字 num1 x num2 乘法表
         // input or prompt 
 
+        // 綁定
+        const num1Input = document.getElementById('num1');
+        const num2Input = document.getElementById('num2');
+        const myBtn = document.getElementById('myBtn');
+
+        let num1 = num1Input.value;
+        let num2 = num2Input.value;
+        console.log('num1',num1);
+        console.log('num2',num2);
 
         // num1 num2
-        let num1 = prompt('num1?');
-        let num2 = prompt('num2?');
+        // let num1 = prompt('num1?');
+        // let num2 = prompt('num2?');
 
         for (let i = 1; i <= num1; i++) {
             for (let j = 1; j <= num2; j++) {
