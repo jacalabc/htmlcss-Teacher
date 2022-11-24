@@ -62,8 +62,36 @@
                 // js 補0
                 // let iStr = i.padStart(2,"0");
 
+                // 1.number -> string
+                // 2.string -> 補0
+                // i
+                // i 1.number -> string
+                // i 2.string -> 補0
+
+                // i 1.number -> string
+                let iStr = i.toString();
+                // i 2.string -> 補0
+                iStr = iStr.padStart(2,"0");
+
+                // j 1.number -> string
+                 let jStr = j.toString();
+                // j 2.string -> 補0
+                jStr = jStr.padStart(2,"0");
+
+                // i * j
+                // j 1.number -> string
+                let result = i*j;
+                let resultStr = result.toString();
+                // j 2.string -> 補0
+                resultStr = resultStr.padStart(2,"0");
+
+                // let str = `${i} * ${j} = ${i*j} ;`;
+                let str = `${iStr} * ${jStr} = ${resultStr} &nbsp;&nbsp;&nbsp;`;
+                
+
                 // let str = `${i} * ${j} = ${i*j} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`;
-                let str = `${i} * ${j} = ${i*j} ;`;
+                // let str = `${i} * ${j} = ${i*j} ;`;
+                // let str = `${i} * ${j} = ${i*j} ;`;
                 // str = "hello $name"  php
                 // str = `hello ${name}`  js
                 // console.log(str);    
