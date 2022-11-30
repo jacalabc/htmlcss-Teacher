@@ -22,13 +22,13 @@
         <p>num1 num2 option(+ - * /)</p>
         <div class="row">
             <div class="col">
-                <input type="number" class="form-control" placeholder="num1" name="num1" id="num1">
+                <input type="number" class="form-control" placeholder="num1" name="num1" id="num1" value="100">
             </div>
             <div class="col">
-                <input type="number" class="form-control" placeholder="num2" name="num2" id="num2">
+                <input type="number" class="form-control" placeholder="num2" name="num2" id="num2" value="50">
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="option" name="opt" id="opt">
+                <input type="text" class="form-control" placeholder="option" name="opt" id="opt" value="+">
             </div>
         </div>
         <div class="row mt-3">
@@ -51,12 +51,17 @@
         const optInput = document.getElementById('opt');
         const myBtnInput = document.getElementById('myBtn');
         const resultPInput = document.getElementById('resultP');
+        let num1Vaule = num1Input.value;
+        let optVaule = optInput.value;
+        let num2Vaule = num2Input.value;
+        let resultStr = '';
 
-        console.log('num1Input',num1Input);
-        console.log('num2Input',num2Input);
-        console.log('optInput',optInput);
-        console.log('myBtnInput',myBtnInput);
-        console.log('resultPInput',resultPInput);
+        // 
+        resultStr = `
+            ${num1Vaule} ${optVaule} ${num2Vaule} = 55688
+        `;
+
+        resultPInput.textContent = resultStr;
 
     </script>
 
