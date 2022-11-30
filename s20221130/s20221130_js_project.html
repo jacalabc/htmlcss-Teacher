@@ -34,7 +34,8 @@
         <div class="row mt-3">
             <div class="col">
                 <div class="d-grid">
-                    <button type="button" class="btn btn-primary btn-block" id="myBtn">ENTER</button>
+                    <button type="button" class="btn btn-primary btn-block" id="myBtn"
+                        onclick="calFun();">ENTER</button>
                 </div>
             </div>
         </div>
@@ -45,23 +46,34 @@
 
     </div>
     <script>
+        // function
+        function calFun() {
+            console.log('calFun ok');
+            // 執行的動作
+            let num1Vaule = num1Input.value;
+            let optVaule = optInput.value;
+            let num2Vaule = num2Input.value;
+            let resultStr = '';
+
+            // 
+            resultStr = `
+            ${num1Vaule} ${optVaule} ${num2Vaule} = 55688
+            `;
+
+            // 加入判斷式
+            
+
+            resultPInput.textContent = resultStr;
+        }
+
         // 綁定
         const num1Input = document.getElementById('num1');
         const num2Input = document.getElementById('num2');
         const optInput = document.getElementById('opt');
         const myBtnInput = document.getElementById('myBtn');
         const resultPInput = document.getElementById('resultP');
-        let num1Vaule = num1Input.value;
-        let optVaule = optInput.value;
-        let num2Vaule = num2Input.value;
-        let resultStr = '';
 
-        // 
-        resultStr = `
-            ${num1Vaule} ${optVaule} ${num2Vaule} = 55688
-        `;
 
-        resultPInput.textContent = resultStr;
 
     </script>
 
