@@ -22,10 +22,10 @@
         <p>num1 num2 option(+ - * /)</p>
         <div class="row">
             <div class="col">
-                <input type="number" class="form-control" placeholder="num1" name="num1" id="num1" value="100">
+                <input type="number" class="form-control" placeholder="num1" name="num1" id="num1" value="">
             </div>
             <div class="col">
-                <input type="number" class="form-control" placeholder="num2" name="num2" id="num2" value="50">
+                <input type="number" class="form-control" placeholder="num2" name="num2" id="num2" value="">
             </div>
             <div class="col">
                 <input type="text" class="form-control" placeholder="option" name="opt" id="opt" value="+">
@@ -48,6 +48,18 @@
     <script>
         // function
         function calFun() {
+            // 防呆 空格 JS 判斷有沒有東西 length
+            let initNum1Input = num1Input.value;
+            let initNum2Input = num2Input.value;
+            // console.log('initNum1Input', initNum1Input);
+            if (initNum1Input.length > 0 && initNum2Input.length > 0) {
+                console.log('ok');                
+            } else {
+                console.log('error');
+                // return false;
+                alert('num1 num2 要輸入');
+            }
+
             console.log('calFun ok');
             // 執行的動作
             let num1Vaule = Number(num1Input.value);
@@ -90,6 +102,7 @@
         const optInput = document.getElementById('opt');
         const myBtnInput = document.getElementById('myBtn');
         const resultPInput = document.getElementById('resultP');
+
 
 
 
