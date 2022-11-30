@@ -16,7 +16,7 @@
     <div class="container mt-3">
         <h2>Menu</h2>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, expedita!</p>
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered text-center align-middle">
             <thead>
                 <tr>
                     <th>品名</th>
@@ -25,7 +25,7 @@
                     <th>總價</th>
                 </tr>
             </thead>
-            <tbody class="align-middle">
+            <tbody class="">
                 <tr>
                     <td>
                         <h3>花茶</h3>
@@ -78,10 +78,10 @@
             <tfoot>
                 <tr>
                     <td>Result</td>
-                    <td colspan="2">
-                        <p id="resultP">
+                    <td colspan="2" class="align-middle">
+                        <span id="resultS">
 
-                        </p>
+                        </span>
                     </td>
                     <td>
                         <button type="button" class="btn btn-success" onclick="sum();">500/8折</button>
@@ -100,7 +100,7 @@
             let str = `
                 ${item1TotalValue} + ${item2TotalValue} + ${item3TotalValue} = ${sum}
             `;
-            resultP.textContent = str;
+            resultS.textContent = str;
         }
 
         function changeFun() {
@@ -135,7 +135,7 @@
         const item3Count = document.getElementById('item3Count');
         const item3Total = document.getElementById('item3Total');
         
-        const resultP = document.getElementById('resultP');
+        const resultS = document.getElementById('resultS');
 
         changeFun();//一開始執行一次
     </script>
