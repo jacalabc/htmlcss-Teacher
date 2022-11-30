@@ -53,18 +53,33 @@
             console.log('str', str);
         }
 
+        // 有回傳值
+        function sum(num1, num2) {
+            return num1+num2;
+        }
+
         // calFun
         function calFun(){
             let num1Vaule = Number(num1Input.value);
             let num2Vaule = Number(num2Input.value);
-            getArea(num1Vaule,num2Vaule);
+            let area = getArea(num1Vaule,num2Vaule); //回傳值 存入變數
             getPeri(num1Vaule,num2Vaule);
+
+            if(area >= 500){
+                console.log('面積500以上');
+            }else{
+                console.log('面積小於500');
+            }
+
+            // if 面積500以上 500以上 
+            // else 500以下 
         }
 
         // 面積
         function getArea(num1Vaule,num2Vaule){
             let result = num1Vaule * num2Vaule;
             console.log('Area',result);
+            return result;
         }
 
         // 周長
