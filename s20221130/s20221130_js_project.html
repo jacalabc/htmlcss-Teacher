@@ -20,32 +20,45 @@
     <div class="container mt-3">
         <h2>數字 + - * /</h2>
         <p>num1 num2 option(+ - * /)</p>
-        <form>
-            <div class="row">
-                <div class="col">
-                    <input type="number" class="form-control" placeholder="num1" name="num1" id="num1">
-                </div>
-                <div class="col">
-                    <input type="number" class="form-control" placeholder="num2" name="num2" id="num2">
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="option" name="opt" id="opt">
+        <div class="row">
+            <div class="col">
+                <input type="number" class="form-control" placeholder="num1" name="num1" id="num1">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" placeholder="num2" name="num2" id="num2">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="option" name="opt" id="opt">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <div class="d-grid">
+                    <button type="button" class="btn btn-primary btn-block" id="myBtn">ENTER</button>
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <div class="d-grid">
-                        <button type="button" class="btn btn-primary btn-block">Full-Width Button</button>
-                    </div>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
     <hr>
     <div class="container mt-3">
         <p id="resultP">Result</p>
 
     </div>
+    <script>
+        // 綁定
+        const num1Input = document.getElementById('num1');
+        const num2Input = document.getElementById('num2');
+        const optInput = document.getElementById('opt');
+        const myBtnInput = document.getElementById('myBtn');
+        const resultPInput = document.getElementById('resultP');
+
+        console.log('num1Input',num1Input);
+        console.log('num2Input',num2Input);
+        console.log('optInput',optInput);
+        console.log('myBtnInput',myBtnInput);
+        console.log('resultPInput',resultPInput);
+
+    </script>
 
 </body>
 
