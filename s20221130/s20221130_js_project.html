@@ -50,18 +50,36 @@
         function calFun() {
             console.log('calFun ok');
             // 執行的動作
-            let num1Vaule = num1Input.value;
+            let num1Vaule = Number(num1Input.value);
             let optVaule = optInput.value;
-            let num2Vaule = num2Input.value;
+            let num2Vaule = Number(num2Input.value);
+            let resultCal = 0;
             let resultStr = '';
 
-            // 
-            resultStr = `
-            ${num1Vaule} ${optVaule} ${num2Vaule} = 55688
-            `;
-
             // 加入判斷式
-            
+            switch (optVaule) {
+                case '+':
+                    resultCal = num1Vaule + num2Vaule;
+                    break;
+                case '-':
+                    resultCal = num1Vaule - num2Vaule;
+                    break;
+                case '*':
+                    resultCal = num1Vaule * num2Vaule;
+                    break;
+                case '/':
+                    resultCal = num1Vaule / num2Vaule;
+                    break;
+
+                default:
+                    resultCal = 'error';
+                    optVaule = 'error';
+                    break;
+            }
+
+            resultStr = `
+            ${num1Vaule} ${optVaule} ${num2Vaule} = ${resultCal}
+            `;
 
             resultPInput.textContent = resultStr;
         }
