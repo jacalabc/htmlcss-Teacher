@@ -32,8 +32,8 @@
             <div class="col">
                 <!-- <input type="text" class="form-control" placeholder="option" name="opt" id="opt" value="+"> -->
                 <select class="form-select" id="mySelect" name="mySelect">
-                    <option value="+">+</option>  如果有修改時的預設值
-                    <option value="+">-------------</option>
+                    <!-- <option value="+">+</option>  如果有修改時的預設值
+                    <option value="+">-------------</option> -->
                     <option >+</option>
                     <option >-</option>
                     <option >*</option>
@@ -78,6 +78,7 @@
             let resultCal = 0;
             let resultStr = '';
 
+            // 可讀性 與 程式碼精簡
             // 加入判斷式
             switch (optVaule) {
                 case '+':

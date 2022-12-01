@@ -91,15 +91,47 @@
         </table>
     </div>
     <script>
-        // changeFun()
+        // db
+        // table students
+        // column name phoneDB X
+
+        // html 
+        // Id ID
+        // input name name phoneInputName X
+        // input id name phoneInputID X
+
+        // js name
+        //  phoneJS X
+
+        // php name
+        // phonePHP X
+
+        //ballImg
+        //ballStr
+        //ballBool
+
+        /*
+        * sum()
+        * 計算加總
+        * > 500 打八折
+        */
         function sum() {
             let item1TotalValue = Number(item1Total.value);
             let item2TotalValue = Number(item2Total.value);
             let item3TotalValue = Number(item3Total.value);
             let sum = item1TotalValue + item2TotalValue + item3TotalValue;
-            let str = `
+            let str = "";            
+            
+            if (sum > 500) {
+                str = `
                 ${item1TotalValue} + ${item2TotalValue} + ${item3TotalValue} = ${sum}
-            `;
+                ---八折優惠 ${sum*0.8}----
+                `;
+            } else {
+                str = `
+                ${item1TotalValue} + ${item2TotalValue} + ${item3TotalValue} = ${sum}
+                `;
+            }
             resultS.textContent = str;
         }
 
@@ -134,7 +166,7 @@
         const item3Price = document.getElementById('item3Price');
         const item3Count = document.getElementById('item3Count');
         const item3Total = document.getElementById('item3Total');
-        
+
         const resultS = document.getElementById('resultS');
 
         changeFun();//一開始執行一次
