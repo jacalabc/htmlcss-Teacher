@@ -38,10 +38,17 @@
         console.log('myArr',myArr);
         console.log('newArr',newArr);
         console.log('new2Arr',new2Arr);
-       
+        
         // map
-        
-        
+        let mapArr = myArr.map((value,index) => {
+            if(value <= 6){
+                return value*3;
+            }else{
+                return value;
+            }
+        });
+        console.log('myArr',myArr);
+        console.log('mapArr',mapArr);
 
     </script>
 
