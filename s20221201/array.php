@@ -104,3 +104,7 @@ foreach ($mobileArr as $key => $value) {
     echo '<hr>';
    dd($value);
 }
+
+foreach ($variable as $key => $value) {
+    # code...
+}
