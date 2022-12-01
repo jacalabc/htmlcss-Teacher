@@ -17,7 +17,9 @@
         // pop 砍掉最後一個
         // shift 砍掉第一個
         // concat 合併
+        // ... spread oprator 分算運算子
         // splice 插入 (插入位置(key),刪除,插入的東西)
+        // indexOf value 找 key ; 有資料=>key 無資料=>-1
 
         // array
         // key 很多個 變數 打包在一個大包包裡面
@@ -28,16 +30,21 @@
         let strArr = ['amy','bob','cat'];
         let res = strArr.toString();
         let resToArr = res.split(',');
+        let getIndexOf = strArr.indexOf('fsfdfdfs');
+        
+        console.log('getIndexOf',getIndexOf);
         console.log('res',res);
         console.log('strArr typeof',typeof(strArr));
         console.log('res typeof',typeof(res));
         console.log('resToArr',resToArr);
         console.log('resToArr typeof',typeof(resToArr));
+        
 
         let myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         myArr.splice(4,0,444,555);
         let myArr2 = [11,12,13];
-        let myArrConcat = myArr.concat(myArr2);
+        // let myArrConcat = myArr.concat(myArr2);
+        let myArrConcat = [...myArr,...myArr2];
         console.log('myArrConcat',myArrConcat);
         myArr[0] = 55688;
         // myArr.push(11);
