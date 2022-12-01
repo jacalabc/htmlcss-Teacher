@@ -98,6 +98,9 @@ dd($mobileArr);
 
 
 foreach ($mobileArr as $key => $value) {
+    if($key == 'price'){
+
+    }
     echo '<hr>';
    dd($value);
 }
