@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .myClass{
+        .myClass {
             color: red;
         }
     </style>
 </head>
+
 <body>
     <script>
         // php 
@@ -25,23 +27,75 @@
         // array = [1,2,3,4,5]
         // object
         let myObj = {
-            's1' : 'amy',
-            's2' : 'bob',
-            's3' : 'cat'
+            's1': 'amy',
+            's2': 'bob',
+            's3': 'cat'
         }
-        console.log('myObj',myObj);
+        console.log('myObj', myObj);
         // 小練習
         // 5個手機　
         // name : price
         let myMobile = {
-            'Apple iPhone 14 128G' : 25800,
-            'Apple iPhone 14 256G' : 30000,
-            'Apple iPhone 14 512G' : 45000,
-            'Apple iPhone 13 128G' : 20000,
-            'Apple iPhone 13 256G' : 25000,
+            'iPhone14_128G': 25800,
+            'iPhone14_256G': 30000,
+            'iPhone14_512G': 45000,
+            'iPhone13_128G': 20000,
+            'iPhone13_256G': 25000,
         }
-        console.log('myBobile',myMobile);
+        console.log('myMobile', myMobile);
+
+        // 多維obj [{},{},{}]
+        let multiMobileArr = [
+            {
+                'name': 'iPhone14_128G',
+                'price': 25800,
+                'location': ['北', '中', '南']
+            },
+            {
+                'name': 'iPhone14_256G',
+                'price': 30000,
+                'location': ['北', '中', '南']
+
+            },
+            {
+                'name': 'iPhone14_512G',
+                'price': 45000,
+                'location': ['北', '中', '南']
+
+            }
+        ];
+        console.log('multiMobileArr', multiMobileArr);
+
+        // foreach
+        let sum = 0;
+        multiMobileArr.forEach((value, key) => {
+            console.log(`${key} => `, value);
+            console.log('value.price => ', value.price );
+            sum += value.price;
+        });
+       
+        // object {{} {} {}}
+        let myObj2 = {
+            'obj1' : {
+                'name': 'iPhone14_128G',
+                'price': 25800,
+                'location': ['北', '中', '南']
+            },
+            'obj2' : {
+                'name': 'iPhone14_128G',
+                'price': 25800,
+                'location': ['北', '中', '南']
+            },
+            'obj3' : {
+                'name': 'iPhone14_128G',
+                'price': 25800,
+                'location': ['北', '中', '南']
+            },
+        }
+        console.log('myObj2', myObj2);
+
 
     </script>
 </body>
+
 </html>
