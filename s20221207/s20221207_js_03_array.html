@@ -41,7 +41,7 @@
         },10000);
         console.log('sum', sum);
 
-        // filter 塞選資料
+        // filter 篩選資料
         let employeeArrFilter = employeeArr.filter((value) => {
             return value < 5;
         })
@@ -64,6 +64,16 @@
         })
 
         console.log('sumValue',sumValue);
+
+        // 篩選
+        let filterArr= [];
+        bonusArr.forEach((value ,key) => {
+            if(value > 10){
+                filterArr.push(value);
+            }
+        });
+
+        console.log('filterArr',filterArr);
 
 
 
