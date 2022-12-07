@@ -15,13 +15,24 @@
 
 <body>
     <script>
+        // body this
+        console.log('this',this);
+
         let obj = {
             // 變數 property
-            'name': '小名',
+            'name': '小明',
             'age': 18,
+            'address' : '泰山xxx',
             // 方法 method
             'helloFun': function () {
-                console.log('hello');
+                // console.log('hello');
+                console.log('this.name',this.name);
+                let str = `Hello 我是${this.name} 今年${this.age}歲`;
+                console.log(str);
+                
+            },
+            'sleepFun' : () => {
+                // console.log('sleep ...');
             }
         }
 
