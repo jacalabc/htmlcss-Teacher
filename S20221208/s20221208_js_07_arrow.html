@@ -32,6 +32,20 @@
         console.log(myFun(3));
         console.log(myFun(5));
         console.log(myFun(10));
+
+        // 設計一個function arrow
+        // sum = num1 + num2
+        function sum (num1,num2){
+            return num1+num2;
+        }
+        let result =sum(10,200);
+        console.log('result',result);
+
+        let arrowFun = (num1,num2) => num1 + num2;
+        let resultArrow = arrowFun(3,5);
+        console.log('resultArrow',resultArrow);
+
+
         
     </script>
 
