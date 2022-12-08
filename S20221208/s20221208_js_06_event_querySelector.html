@@ -27,6 +27,14 @@
         const myBtn = document.querySelectorAll('.myBtn');
         console.log('myBtnID',myBtnID);
         console.log('myBtn',myBtn);
+        console.log('myBtn typeof',typeof(myBtn));
+        console.log('myBtn Array.isArray()',Array.isArray(myBtn));
+
+        myBtn.forEach(function(value){
+            console.log(value);
+        })
+        
+        myBtnID.style.color = 'blue';
 
 
     </script>
