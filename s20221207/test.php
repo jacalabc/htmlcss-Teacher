@@ -5,4 +5,5 @@
         array_push($doubleArr,$value);
     }
 
+
     print_r($doubleArr);

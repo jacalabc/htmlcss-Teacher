@@ -31,6 +31,7 @@
             's2': 'bob',
             's3': 'cat'
         }
+        // let myObj2 = {1,2,3};
         console.log('myObj', myObj);
         // 小練習
         // 5個手機　
@@ -43,13 +44,14 @@
             'iPhone13_256G': 25000,
         }
         console.log('myMobile', myMobile);
-
+  
         // 多維obj [{},{},{}]
         let multiMobileArr = [
             {
                 'name': 'iPhone14_128G',
                 'price': 25800,
-                'location': ['北', '中', '南']
+                'location': ['北', '中', '南'],
+                'testObj' : {'s1' : 'amy'}
             },
             {
                 'name': 'iPhone14_256G',
@@ -65,6 +67,13 @@
             }
         ];
         console.log('multiMobileArr', multiMobileArr);
+        console.log('multiMobileArr.name', multiMobileArr[0].name);
+        console.log('multiMobileArr.location', multiMobileArr[0].location);
+        console.log('multiMobileArr.testObj', multiMobileArr[0].testObj);
+        console.log('multiMobileArr.location', multiMobileArr[0].location);
+        multiMobileArr[0].location.forEach(element => {
+            console.log(element);
+        });
 
         // foreach
         let sum = 0;
