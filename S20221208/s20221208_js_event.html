@@ -10,19 +10,49 @@
 </head>
 
 <body>
-    <h3>Event</h3>
+    <h3 onmouseover="mouseoverFun(this);" onmouseout="mouseoutFun(this);" id="myH3">Event</h3>    
     <!-- click -->
     <p id="myP"></p>
     <button id="myBtn" onclick="clickFun();">myBtn</button>
+
+    <!-- mouseOver -->
  
     <script>
         function clickFun() {
+            console.log('this',this);
             console.log('clickFun ok');
+        }
+        function mouseoverFun(myThis) {
+            console.log('this',this);
+            console.log('myThis',myThis);
+            console.log('mouseoverFun ok');
+            myH3.style.color = 'red';
+        }
+        function mouseoutFun() {
+            console.log('mouseoutFun ok');
+            myH3.style.color = 'black';
         }
 
         // 綁定
         const myP = document.getElementById('myP');
+        const myH3 = document.getElementById('myH3');
         myP.textContent='click event ok';
+        // myH3.addEventListener('click',function(){
+        //     console.log('click myH3');
+        //     console.log('this',this);
+        // });
+        // myH3.addEventListener('mouseover',function(){
+        //     console.log('mouseover myH3');
+        //     console.log('this',this);
+        //     this.style.color = 'red';
+        // });
+        // myH3.addEventListener('mouseout',function(){
+        //     console.log('mouseout myH3');
+        //     console.log('this',this);
+        //     this.style.color = 'black';
+        // });
+
+        
     </script>
 
 </body>
