@@ -17,6 +17,7 @@
             width: 800px;
             height: 200px;
             background-color: lightblue;
+            /* display: none; */
         }
     </style>
 </head>
@@ -53,11 +54,14 @@
                 // $('.box2').slideUp();
                 $('.box2').slideToggle();
             });
+            // jquery methon chain
             $('#slideUpBtn').click(function () {
-                $('.box2').slideUp();
+                $('.box2').css("color", "red").slideUp(2000).slideDown(2000).slideUp(2000).slideDown(2000);
             })
             $('#slideDownBtn').click(function () {
-                $('.box2').slideDown();
+                $('.box2').slideDown(3000,function(){
+                    alert('收費10000');
+                });
             })
             $('#slideToggleBtn').click(function () {
                 $('.box2').slideToggle();
