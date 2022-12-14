@@ -20,8 +20,18 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
+        // const allP = document.querySelectorAll('p');
+        // console.log(allP);
+        // allP.forEach(element => {
+        //     element.addEventListener('click',function(value,key){
+        //         this.style.color = 'blue';
+        //         this.hide();
+        //         // console.log('key',key);
+        //     })
+        // });
         $(function(){
             $('p').click(function(){
+                // hide() jquery method
                 $(this).hide();
                 console.log('this',this);
                 console.log('$(this)',$(this));
