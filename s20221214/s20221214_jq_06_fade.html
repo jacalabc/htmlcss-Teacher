@@ -32,16 +32,19 @@
 
 
         $(function () {
+            // 綁定
+            const allP = $('p');
+
             // 淡入 淡出
             $('#fadeInBtn').click(function () {
-                $('p').fadeIn();
+                allP.fadeIn();
             })
             // event on('event',callback);
             $('#fadeOutBtn').on('click',function () {
-                $('p').fadeOut();
+                allP.fadeOut();
             })
             $('#fadeToggleBtn').click(function () {
-                $('p').fadeToggle();
+                allP.fadeToggle();
             })
 
         });
