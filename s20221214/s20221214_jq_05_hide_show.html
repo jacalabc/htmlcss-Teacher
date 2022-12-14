@@ -32,11 +32,21 @@
 
 
         $(function () {
+            function sayHello() {
+                alert('hello jquery');
+            }
 
+            let itemNum = 1;
             $('#hideBtn').click(function () {
-                $('p').hide();
+                $('p').hide(5000, function () {
+                    console.log('itemNum',itemNum);
+                    itemNum++;
+                    // sayHello();
+                    // alert('123');
+                });
             })
-            $('#showBtn').click(function () {
+            // event on('event',callback);
+            $('#showBtn').on('click',function () {
                 $('p').show();
             })
             $('#toggleBtn').click(function () {
