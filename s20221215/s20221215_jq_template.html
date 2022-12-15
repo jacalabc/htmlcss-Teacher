@@ -12,10 +12,15 @@
             font-size: 48px;
         }
 
-        /* .green{
+
+        .green{
             color:green;
             font-size: 30px;
-        } */
+        }
+
+        .bold{
+            font-weight: bold;
+        }
     </style>
    
 </head>
@@ -68,9 +73,15 @@
             myBtn.click(function(){
                 // $('p').css('color','red');
                 // $('p').css('font-size','48px');
-                // $('p').removeClass('green');
+                // $('p').removeClass();
                 // $('p').addClass('red');
-                $('p').toggleClass('red');
+                // $('p').addClass('bold');
+                // $('p').toggleClass('red');
+
+                //attribute
+                $('p').attr('class','red bold');
+                $('p').attr('data-hello','hello');
+
                 
             });
 
