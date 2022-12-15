@@ -24,11 +24,14 @@
 
         .box2 {
             width: 100%;
-            height: 200px;
+            height: 70vh;
             background-color: lightblue;
+            overflow: scroll;
+            display: none;
         }
         p{
             display: none;
+            padding: 20px;
         }
     </style>
 </head>
@@ -43,7 +46,9 @@
         <button type="button" id="tab4">tab4</button>
     </div>
     <div class="box2">
-        <p> 1111 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima rerum inventore accusamus ad deserunt dolor,
+        <p> 
+            <img src="https://picsum.photos/id/1/200/200" alt="" width="100px">
+            1111 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima rerum inventore accusamus ad deserunt dolor,
             rem quas hic aut, molestias eius error. Consequatur nam placeat facere pariatur, doloremque nulla, fugit
             quibusdam et enim, reiciendis accusamus possimus saepe minima ea eaque inventore suscipit molestias
             doloribus. Quam autem eveniet nobis quaerat fuga ipsa, veniam eligendi reiciendis molestiae dicta atque
@@ -96,24 +101,28 @@
 
             tab1.click(function () {
                 // box2.text('11111');
+                box2.show();
                 allP.hide();
                 allP.eq(0).slideDown();
             });
 
             tab2.click(function () {
                 // box2.text('2222');
+                box2.show();
                 allP.hide();
                 allP.eq(1).slideDown();
             });
 
             tab3.click(function () {
                 // box2.text('3333');
+                box2.show();
                 allP.hide();
                 allP.eq(2).slideDown();
             });
 
             tab4.click(function () {
                 // box2.text('4444');
+                box2.show();
                 allP.hide();
                 allP.eq(3).slideDown(2000);
             });
