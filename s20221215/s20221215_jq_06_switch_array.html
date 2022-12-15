@@ -19,6 +19,10 @@
         .yellow {
             color: yellow;
         }
+
+        .blue {
+            color: blue;
+        }
     </style>
 
 </head>
@@ -66,7 +70,8 @@
             const myBtn = $('button');
 
             //array
-            const colorArr = ['red', 'yellow', 'green'];
+            const colorArr = ['red', 'yellow', 'green', 'blue'];
+
             console.log('colorArr', colorArr);
             console.log('colorArr[0]', colorArr[0]);
             console.log('colorArr[1]', colorArr[1]);
@@ -79,23 +84,32 @@
             myBtn.click(function () {
                 console.log('num', num);
                 console.log('num${colorArr[num]}', colorArr[num]);
-                switch (num) {
-                    case 0:
-                        $('p').attr('class', `${colorArr[0]}`);
-                        num = 1;
-                        break;
-                    case 1:
-                        $('p').attr('class', `${colorArr[1]}`);
-                        num = 2;
-                        break;
-                    case 2:
-                        $('p').attr('class', `${colorArr[2]}`);
-                        num = 0;
-                        break;
+                // num++;
+                // let checkNum = num % colorArr.length;
+                // console.log('checkNum', checkNum);
+                // $('p').attr('class', colorArr[checkNum]);
 
-                    default:
-                        break;
-                }
+                let randomNum = Math.floor(Math.random() * (colorArr.length - 1));
+                console.log('randomNum', randomNum);
+                $('p').attr('class', colorArr[randomNum]);
+
+                // switch (num) {
+                //     case 0:
+                //         $('p').attr('class', `${colorArr[0]}`);
+                //         num = 1;
+                //         break;
+                //     case 1:
+                //         $('p').attr('class', `${colorArr[1]}`);
+                //         num = 2;
+                //         break;
+                //     case 2:
+                //         $('p').attr('class', `${colorArr[2]}`);
+                //         num = 0;
+                //         break;
+
+                //     default:
+                //         break;
+                // }
             });
 
             // 同一個按鈕
