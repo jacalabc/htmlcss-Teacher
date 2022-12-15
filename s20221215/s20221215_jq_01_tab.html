@@ -103,7 +103,13 @@
                 // box2.text('11111');
                 box2.show();
                 allP.hide();
-                allP.eq(0).slideDown();
+                $(this).css('color','black');
+                allP.eq(0).slideDown(10000,function(){
+                    // alert('123');
+                    $(this).css('color','red');
+                }).slideUp(10000,function(){
+                    $(this).css('color','black');
+                });
             });
 
             tab2.click(function () {
