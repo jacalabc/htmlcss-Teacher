@@ -12,7 +12,7 @@
 
 <body>
     <h3>jquery each</h3>
-    <p>Lorem ipsum dolor sit amet.</p>
+    <p data-s55688="123">Lorem ipsum dolor sit amet.</p>
     <p>Lorem ipsum dolor sit amet.</p>
     <p>Lorem ipsum dolor sit amet.</p>
     <p>Lorem ipsum dolor sit amet.</p>
@@ -30,6 +30,7 @@
             // 綁定
             console.log('allP');
             const allP = $('p');
+            allP.eq(0).data('s55688', "Hello World");
             console.log('allP', allP);
             $.each(allP, function (key, value) {
                 console.log(key);
@@ -45,8 +46,20 @@
                 console.log(this);
                 console.log($(this));
                 console.log($(value));
+                let numSort = key + 1;
+                $(this).text(numSort);
+                $(this).attr('data-s55688', "Hello World");
 
             });
+
+            // $.each(collection, function (indexInArray, valueOfElement) { 
+                 
+            // });
+
+            // $(selector).each(function (index, element) {
+            //     // element == this
+                
+            // });
 
 
             console.log('myArr');
