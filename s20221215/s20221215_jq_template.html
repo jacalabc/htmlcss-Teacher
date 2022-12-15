@@ -7,22 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .red{
+        .red {
             color: red;
-            font-size: 48px;
         }
 
 
-        .green{
-            color:green;
-            font-size: 30px;
+        .green {
+            color: green;
         }
 
-        .bold{
-            font-weight: bold;
+        .yellow {
+            color: yellow;
         }
     </style>
-   
+
 </head>
 
 <body>
@@ -67,22 +65,38 @@
 
             const myBtn = $('button');
 
+            //array
+            const colorArr = ['red', 'yellow', 'green'];
+            console.log('colorArr', colorArr);
+            console.log('colorArr[0]', colorArr[0]);
+            console.log('colorArr[1]', colorArr[1]);
+            console.log('colorArr[2]', colorArr[2]);
+
             pJs.innerText = 'Change Js';
             pJq.text('change jq');
 
-            myBtn.click(function(){
-                // $('p').css('color','red');
-                // $('p').css('font-size','48px');
-                // $('p').removeClass();
-                // $('p').addClass('red');
-                // $('p').addClass('bold');
-                // $('p').toggleClass('red');
+            let num = 0;
+            myBtn.click(function () {
+                console.log('num', num);
+                console.log('num${colorArr[num]}', colorArr[num]);
+                switch (num) {
+                    case 0:
+                        $('p').attr('class', `${colorArr[0]}`);
+                        num = 1;
+                        break;
+                    case 1:
+                        $('p').attr('class', `${colorArr[1]}`);
+                        num = 2;
+                        break;
+                    case 2:
+                        $('p').attr('class', `${colorArr[2]}`);
+                        num = 0;
+                        break;
 
-                //attribute
-                $('p').attr('class','red bold');
-                $('p').attr('data-hello','hello');
+                    default:
+                        break;
+                }
 
-                
             });
 
             // 同一個按鈕
@@ -95,7 +109,7 @@
             // color black
             // font-size 16px
             // text-left
-            
+
 
         });
 
