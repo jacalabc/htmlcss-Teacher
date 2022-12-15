@@ -12,6 +12,13 @@
 <body>
     <h3>jquery html</h3>
 
+    <hr>
+    <h3>JS</h3>
+    <p id="pJs">Hello Js</p>
+    <hr>
+    <h3>JQ</h3>
+    <p id="pJq">Hello Jq</p>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
@@ -22,7 +29,29 @@
 
     <script>
         $(function () {
+            // js
+            // property 屬性
+            // xxxx.innerText = 'hello'
+            // innerText
+            // textContent
+            // innerHtml
+            // value
 
+            // jqery
+            // text('hello')
+            // method 方法 函示 
+            // text()
+            // html()
+            // val()
+
+            // js
+            const pJs = document.getElementById('pJs');
+            // jq
+            const pJq = $('#pJq');
+
+            pJs.innerText = 'Change Js';
+            pJq.text('change jq');
+            
 
         });
 
