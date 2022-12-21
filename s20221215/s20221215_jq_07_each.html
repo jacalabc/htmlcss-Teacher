@@ -13,10 +13,10 @@
 <body>
     <h3>jquery each</h3>
     <p data-s55688="123">Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem ipsum dolor sit amet.</p>
+    <p data-s55688="123">Lorem ipsum dolor sit amet.</p>
+    <p data-s55688="123">Lorem ipsum dolor sit amet.</p>
+    <p data-s55688="123">Lorem ipsum dolor sit amet.</p>
+    <p data-s55688="123">Lorem ipsum dolor sit amet.</p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -48,6 +48,11 @@
                 console.log($(value));
                 let numSort = key + 1;
                 $(this).text(numSort);
+                // html 部分沒改
+                $(this).data('s55688','444');
+                let getData = $(this).data('s55688');
+                // attr 可以改
+                console.log('getData',getData);
                 $(this).attr('data-s55688', "Hello World");
 
             });
