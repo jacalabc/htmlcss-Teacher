@@ -114,28 +114,31 @@
                 // 1. 抓到每個total
                 // 2. sum
                 let sum = 0;
+                let sumText = "";
                 $.each(tbodyTr, function (key, value) {
                     let getThis = $(this);
                     let getThisTd = getThis.find('td');
-                    let getTotal = Number(getThisTd.find('.my-total').val());
+                    let getTotal = Number(getThisTd.find('.my-total').val());                    
                     sum += getTotal;
+                    if(tbodyTr.length-1 > key){
+                        sumText += `${getTotal} + ` ;
+                    }else{
+                        sumText += `${getTotal} ` ;
+                    }
                 });
-                console.log(sum);
-                // let item1TotalValue = Number(item1Total.val());
-                // let item2TotalValue = Number(item2Total.val());
-                // let item3TotalValue = Number(item3Total.val());
-                // let sum = item1TotalValue + item2TotalValue + item3TotalValue;
+                console.log('sum',sum);
+                console.log('sumText',sumText);
                 let str = "";
                 console.log('sum', sum);
 
                 if (sum > 500) {
                     str = `
-                ${sum}
+                    ${sumText} =${sum}
                 ---八折優惠 ${sum * 0.8}----
                 `;
                 } else {
                     str = `
-                ${sum}
+                    ${sumText} =${sum}
                 `;
                 }
                 resultS.text(str);
