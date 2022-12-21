@@ -110,22 +110,32 @@
             function sum() {
 
                 console.log('sum ok');
-                let item1TotalValue = Number(item1Total.val());
-                let item2TotalValue = Number(item2Total.val());
-                let item3TotalValue = Number(item3Total.val());
-                let sum = item1TotalValue + item2TotalValue + item3TotalValue;
+
+                // 1. 抓到每個total
+                // 2. sum
+                let sum = 0;
+                $.each(tbodyTr, function (key, value) {
+                    let getThis = $(this);
+                    let getThisTd = getThis.find('td');
+                    let getTotal = Number(getThisTd.find('.my-total').val());
+                    sum += getTotal;
+                });
+                console.log(sum);
+                // let item1TotalValue = Number(item1Total.val());
+                // let item2TotalValue = Number(item2Total.val());
+                // let item3TotalValue = Number(item3Total.val());
+                // let sum = item1TotalValue + item2TotalValue + item3TotalValue;
                 let str = "";
-                console.log('item1TotalValue', item1TotalValue);
                 console.log('sum', sum);
 
                 if (sum > 500) {
                     str = `
-                ${item1TotalValue} + ${item2TotalValue} + ${item3TotalValue} = ${sum}
+                ${sum}
                 ---八折優惠 ${sum * 0.8}----
                 `;
                 } else {
                     str = `
-                ${item1TotalValue} + ${item2TotalValue} + ${item3TotalValue} = ${sum}
+                ${sum}
                 `;
                 }
                 resultS.text(str);
@@ -133,35 +143,27 @@
 
             function changeFun() {
                 console.log('changeFun ok');
+                tbodyTr.each(function (key, value) {
+                    let getThis = $(this);
+                    let getThisTd = getThis.find('td');
+                    // getThisTd.eq(0); 圖片
 
-                let item1PriceValue = Number(item1Price.val());
-                let item1CountValue = Number(item1Count.val());
-                let item1TotalValue = item1PriceValue * item1CountValue;
-                item1Total.val(item1TotalValue);
+                    // eq
+                    // let getPrice = getThisTd.eq(1).find('input').val();
+                    // let getCount = getThisTd.eq(2).find('input').val();
 
-                let item2PriceValue = Number(item2Price.val());
-                let item2CountValue = Number(item2Count.val());
-                let item2TotalValue = item2PriceValue * item2CountValue;
-                item2Total.val(item2TotalValue);
+                    // class
+                    let getPrice = Number(getThisTd.find('.my-price').val());
+                    let getCount = Number(getThisTd.find('.my-count').val());
+                    getThisTd.find('.my-total').val(getPrice * getCount);
 
-                let item3PriceValue = Number(item3Price.val());
-                let item3CountValue = Number(item3Count.val());
-                let item3TotalValue = item3PriceValue * item3CountValue;
-                item3Total.val(item3TotalValue);
+                    console.log('getPrice', getPrice);
+                    console.log('getCount', getCount);
+                });
+
             }
 
             // 綁定
-            const item1Price = $('#item1Price');
-            const item1Count = $('#item1Count');
-            const item1Total = $('#item1Total');
-
-            const item2Price = $('#item2Price');
-            const item2Count = $('#item2Count');
-            const item2Total = $('#item2Total');
-
-            const item3Price = $('#item3Price');
-            const item3Count = $('#item3Count');
-            const item3Total = $('#item3Total');
 
             const resultS = $('#resultS');
             const resultBtn = $('#resultBtn');
@@ -176,7 +178,7 @@
             const tHeadTrTh = tHeadTr.find('th');
 
             const tbodyTr = $('tbody>tr');
-            const tbodyTrTh = tbodyTr.find('th');
+            const tbodyTrTd = tbodyTr.find('td');
             console.log('tbodyTr', tbodyTr);
 
             tHeadTr.css('color', 'yellow');
@@ -204,28 +206,7 @@
 
             changeFun();//一開始執行一次
 
-            tbodyTr.each(function (key, value) {
-                // console.log('key', key);
-                // console.log('value', value);
-                // console.log('this', this);
-                // console.log('$(this)', $(this));
-                let getThis = $(this);
-                let getThisTd = getThis.find('td');
-                // console.log('getThis', getThis);
-                // console.log('getThisTd', getThisTd);
-                // getThisTd.eq(0); 圖片
-                
-                // eq
-                // let getPrice = getThisTd.eq(1).find('input').val();
-                // let getCount = getThisTd.eq(2).find('input').val();
 
-                // class
-                let getPrice = getThisTd.find('.my-price').val();
-                let getCount = getThisTd.find('.my-count').val();
-
-                console.log('getPrice', getPrice);
-                console.log('getCount', getCount);
-            });
 
         });
 
