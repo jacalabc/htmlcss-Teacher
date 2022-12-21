@@ -172,10 +172,19 @@
 
             // const tr = $('tr');
             // console.log('tr', tr);
-            const tobyTr = $('tbody>tr');
-            console.log('tobyTr', tobyTr);
+            const tHeadTr = $('thead>tr');
+            const tHeadTrTh = tHeadTr.find('th');
+            
+            const tbodyTr = $('tbody>tr');
+            const tbodyTrTh = tbodyTr.find('th');
+            console.log('tbodyTr', tbodyTr);
 
-            // $('thead>tr').css('color','green');
+            tHeadTr.css('color','yellow');
+            // find 往下一層找 find(selector)
+            //  chain . . . jquery_object.jq_method.jq_method
+            tHeadTrTh.eq(0).css('color', 'red');
+            tHeadTrTh.eq(1).css('color', 'green');
+            tHeadTrTh.eq(2).css('color', 'blue');
 
             console.log('item3Price', item3Price);
             console.log('resultS', resultS);
@@ -194,6 +203,12 @@
             });
 
             changeFun();//一開始執行一次
+
+            tbodyTr.each(function (key, value) {
+                console.log('key',key);
+                console.log('value',value);
+                
+            });
 
         });
 
