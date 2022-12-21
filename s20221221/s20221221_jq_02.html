@@ -214,8 +214,15 @@
                 // console.log('getThis', getThis);
                 // console.log('getThisTd', getThisTd);
                 // getThisTd.eq(0); 圖片
-                let getPrice = getThisTd.eq(1).find('input').val();
-                let getCount = getThisTd.eq(2).find('input').val();
+                
+                // eq
+                // let getPrice = getThisTd.eq(1).find('input').val();
+                // let getCount = getThisTd.eq(2).find('input').val();
+
+                // class
+                let getPrice = getThisTd.find('.my-price').val();
+                let getCount = getThisTd.find('.my-count').val();
+
                 console.log('getPrice', getPrice);
                 console.log('getCount', getCount);
             });
