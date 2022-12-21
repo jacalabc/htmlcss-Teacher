@@ -17,7 +17,7 @@
             width:80%;
             height: 80%;
             border: 1px blue solid;
-            /* background-color: lightpink; */
+            /* background-color: lightskyblue; */
         }
         li{
             width:80%;
@@ -78,11 +78,33 @@
 
             // ex 只知道校長
             // 找老師
-            const head = $('div');
-            const teacher = head.find('ul');
+            // const head = $('div');
+            // const teacher = head.find('ul');
+
+            // jQuery Traversing - Descendants
+            // 後代選擇器
+            // find('選擇器') 找一層
+            // children() 找下一層
+            // children().children 找下二層
+            // const teacher = head.children();
+
+            // 找學生
+            // const student = teacher.find('li');
             // teacher.css('background-color','lightpink');
             // teacher.eq(0).css('background-color','lightpink');
-            teacher.eq(1).css('background-color','lightpink');
+            // teacher.eq(1).css('background-color','lightpink');
+            // student.css('background-color','lightskyblue');
+
+            // 知道學生 找上幾代
+            // jQuery Traversing - Ancestors
+            // 祖先選擇器 父母類別
+            const studnet = $('li');
+            const studentParent = $('li').first().parent();
+            const studentParentParent = $('li').first().parent().parent();
+            console.log('studnet',studnet);
+            console.log('studentParent',studentParent);
+            console.log('studentParentParent',studentParentParent);
+
 
         });
 
