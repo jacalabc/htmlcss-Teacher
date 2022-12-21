@@ -107,46 +107,76 @@
     <script>
         $(function () {
 
+            // btn 執行 sum
             function sum() {
 
                 console.log('sum ok');
 
                 // 1. 抓到每個total
                 // 2. sum
-                let sum = 0;
-                let sumText = "";
-                $.each(tbodyTr, function (key, value) {
-                    let getThis = $(this);
-                    let getThisTd = getThis.find('td');
-                    let getTotal = Number(getThisTd.find('.my-total').val());                    
-                    sum += getTotal;
-                    if(tbodyTr.length-1 > key){
-                        sumText += `${getTotal} + ` ;
-                    }else{
-                        sumText += `${getTotal} ` ;
-                    }
-                });
-                console.log('sum',sum);
-                console.log('sumText',sumText);
-                let str = "";
-                console.log('sum', sum);
 
-                if (sum > 500) {
-                    str = `
+                //jquery each
+                // $.each(collection, function (indexInArray, valueOfElement) { 
+
+                // });
+
+                // $(selector).each(function (index, element) {
+                //     // element == this
+
+                // });
+
+                let forSum = 0;
+                for (let i = 1; i <= 10; i++) {
+                    forSum += i ;
+                }
+                //forSum ? 55
+
+        
+
+            let sum = 0;
+            let sumText = "";
+            $.each(tbodyTr, function (key, value) {
+                let getThis = $(this);
+                let getThisTd = getThis.find('td');
+                let getTotal = Number(getThis.find('.my-total').val());
+                // let getTotal = Number(getThisTd.find('.my-total').val());                    
+                sum += getTotal;
+                // 1 + 2 + 3 + = 6
+                // if 長度-1 > key
+                // 1 + 2 + 3 = 6
+                if (tbodyTr.length - 1 > key) {
+                    sumText += `${getTotal} + `;
+                } else {
+                    sumText += `${getTotal} `;
+                }
+            });
+            console.log('sum', sum);
+            console.log('sumText', sumText);
+            let str = "";
+            console.log('sum', sum);
+
+            if (sum > 500) {
+                str = `
                     ${sumText} =${sum}
                 ---八折優惠 ${sum * 0.8}----
                 `;
-                } else {
-                    str = `
+            } else {
+                str = `
                     ${sumText} =${sum}
                 `;
-                }
-                resultS.text(str);
             }
+            resultS.text(str);
+        }
 
             function changeFun() {
                 console.log('changeFun ok');
                 tbodyTr.each(function (key, value) {
+                    // 'this'
+                    // $('this')
+                    // this 
+                    // $(this)
+
+
                     let getThis = $(this);
                     let getThisTd = getThis.find('td');
                     // getThisTd.eq(0); 圖片
@@ -169,45 +199,45 @@
             // 綁定
 
             const resultS = $('#resultS');
-            const resultBtn = $('#resultBtn');
+        const resultBtn = $('#resultBtn');
 
-            const myPrice = $('.my-price');
-            const myCount = $('.my-count');
-            const myTotal = $('.my-total');
+        const myPrice = $('.my-price');
+        const myCount = $('.my-count');
+        const myTotal = $('.my-total');
 
-            // const tr = $('tr');
-            // console.log('tr', tr);
-            const tHeadTr = $('thead>tr');
-            const tHeadTrTh = tHeadTr.find('th');
+        // const tr = $('tr');
+        // console.log('tr', tr);
+        const tHeadTr = $('thead>tr');
+        const tHeadTrTh = tHeadTr.find('th');
 
-            const tbodyTr = $('tbody>tr');
-            const tbodyTrTd = tbodyTr.find('td');
-            console.log('tbodyTr', tbodyTr);
+        const tbodyTr = $('tbody>tr');
+        const tbodyTrTd = tbodyTr.find('td');
+        console.log('tbodyTr', tbodyTr);
 
-            tHeadTr.css('color', 'yellow');
-            // find 往下一層找 find(selector)
-            //  chain . . . jquery_object.jq_method.jq_method
-            tHeadTrTh.eq(0).css('color', 'red');
-            tHeadTrTh.eq(1).css('color', 'green');
-            tHeadTrTh.eq(2).css('color', 'blue');
+        tHeadTr.css('color', 'yellow');
+        // find 往下一層找 find(selector)
+        //  chain . . . jquery_object.jq_method.jq_method
+        tHeadTrTh.eq(0).css('color', 'red');
+        tHeadTrTh.eq(1).css('color', 'green');
+        tHeadTrTh.eq(2).css('color', 'blue');
 
-            console.log('item3Price', item3Price);
-            console.log('resultS', resultS);
-            console.log('myPrice', myPrice);
-            console.log('myCount', myCount);
-            console.log('myTotal', myTotal);
+        console.log('item3Price', item3Price);
+        console.log('resultS', resultS);
+        console.log('myPrice', myPrice);
+        console.log('myCount', myCount);
+        console.log('myTotal', myTotal);
 
-            resultBtn.click(function () {
-                sum();
-            });
+        resultBtn.click(function () {
+            sum();
+        });
 
-            myCount.change(function () {
-                myCount.css('color', '');
-                $(this).css('color', 'red');
-                changeFun();
-            });
+        myCount.change(function () {
+            myCount.css('color', '');
+            $(this).css('color', 'red');
+            changeFun();
+        });
 
-            changeFun();//一開始執行一次
+        changeFun();//一開始執行一次
 
 
 
