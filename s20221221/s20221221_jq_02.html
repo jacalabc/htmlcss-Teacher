@@ -174,12 +174,12 @@
             // console.log('tr', tr);
             const tHeadTr = $('thead>tr');
             const tHeadTrTh = tHeadTr.find('th');
-            
+
             const tbodyTr = $('tbody>tr');
             const tbodyTrTh = tbodyTr.find('th');
             console.log('tbodyTr', tbodyTr);
 
-            tHeadTr.css('color','yellow');
+            tHeadTr.css('color', 'yellow');
             // find 往下一層找 find(selector)
             //  chain . . . jquery_object.jq_method.jq_method
             tHeadTrTh.eq(0).css('color', 'red');
@@ -205,9 +205,19 @@
             changeFun();//一開始執行一次
 
             tbodyTr.each(function (key, value) {
-                console.log('key',key);
-                console.log('value',value);
-                
+                // console.log('key', key);
+                // console.log('value', value);
+                // console.log('this', this);
+                // console.log('$(this)', $(this));
+                let getThis = $(this);
+                let getThisTd = getThis.find('td');
+                // console.log('getThis', getThis);
+                // console.log('getThisTd', getThisTd);
+                // getThisTd.eq(0); 圖片
+                let getPrice = getThisTd.eq(1).find('input').val();
+                let getCount = getThisTd.eq(2).find('input').val();
+                console.log('getPrice', getPrice);
+                console.log('getCount', getCount);
             });
 
         });
