@@ -136,6 +136,14 @@
             let sum = 0;
             let sumText = "";
             $.each(tbodyTr, function (key, value) {
+                // console.log('--------------');
+                // console.log('key',key);
+                // console.log('value',value);
+                // console.log('this',this);
+                // console.log('$(this)',$(this));
+                // console.log('--------------');
+               
+
                 let getThis = $(this);
                 let getThisTd = getThis.find('td');
                 let getTotal = Number(getThis.find('.my-total').val());
