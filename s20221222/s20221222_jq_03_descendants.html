@@ -32,6 +32,7 @@
             height: 80%;
             border: 1px red solid;
             margin-top: 20px;
+            
         }
     </style>
 </head>
@@ -41,12 +42,15 @@
     <div>
         div
         <!-- ul 老師 php-->
+
         <ul>
             ul
             <li>li <span>amy</span></li>
             <li>li bob</li>
             <li>li cat</li>
         </ul>
+
+
 
         <!-- ul 老師 js-->
         <ul>
@@ -55,11 +59,25 @@
             <li>li egg</li>
             <li>li fox</li>
         </ul>
+        <ul>
+            ul
+            <li>li dog</li>
+            <li>li egg</li>
+            <li>li fox</li>
+        </ul>
+        <ul>
+            ul
+            <li>li dog</li>
+            <li>li egg</li>
+            <li>li fox</li>
+        </ul>
+        <ul>
+            ul
+            <li>li dog</li>
+            <li>li egg</li>
+            <li>li fox</li>
+        </ul>
     </div>
-
-
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
@@ -75,33 +93,26 @@
 
 
             // traversing
-            // 祖先選擇器
+            // 後代選擇器
 
-            // parent 選一個
-            // parents 選全部
-            // parentUntil 
+            // children() 
+            // find()
+            const div = $('div');
+            const divChildren = div.children();
+            console.log('divChildren', divChildren);
+            // divChildren.css('border-color','#ccc');
 
-            const li = $('li');
-            console.log('li', li);
-            li.click(function () {
-                li.css('background-color', '');
-                $(this).css('background-color', 'blue');
-                liParentsUntil.css('color','red');
-                
-            })
+            const divFind = div.find('ul');
+            console.log('divFind',divFind);
+            // divFind.first().css('border-color','#ccc');
+            divFind.odd().css('border-color','#ccc');
+            divFind.even().css('border-color','#ccc');
+            // divFind.last().css('border-color','#ccc');
 
-            // parent 選一個
-            const liParent = li.parent();
-            // parents 選全部
-            const liParents = li.parents();
-            // parentUntil 碰到xxx之前的全部
-            const liParentsUntil = li.parentsUntil('div');
 
-            console.log('liParent', liParent);
-            console.log('liParents', liParents);
-            console.log('liParentsUntil', liParentsUntil);
 
-            
+
+
 
 
         });
