@@ -165,7 +165,7 @@
                 console.log('allUl[0]',allUl[0]); //eq(0)
                 console.log('allUl[1]',allUl[1]); //eq(1)
                 // not($( "#selected" )[ 0 ]) 官網提到
-                $(this).parent().parent().find('ul').not(allUl[`${getIndex}`]).css('background-color','black');
+                allUl.not(allUl[`${getIndex}`]).css('background-color','black');
                 
                 // $(this).parent().parent().find('ul').not(`:eq(${getIndex})`).css('background-color','yellow');
                 // $(this).parent().parent().find('ul').not(`:eq(${getIndex})`).find('li').css('background-color','white');
