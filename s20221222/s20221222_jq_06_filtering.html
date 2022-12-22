@@ -46,7 +46,7 @@
         <ul>
             ul
             <li>li <span>amy</span></li>
-            <li>li bob</li>
+            <li class="test">li bob</li>
             <li>li cat</li>
         </ul>
 
@@ -56,25 +56,25 @@
         <ul>
             ul
             <li>li dog</li>
-            <li>li egg</li>
+            <li class="test">li egg</li>
             <li>li fox</li>
         </ul>
         <ul>
             ul
             <li>li dog</li>
-            <li>li egg</li>
+            <li class="test">li egg</li>
             <li>li fox</li>
         </ul>
         <ul>
             ul
             <li>li dog</li>
-            <li>li egg</li>
+            <li class="test">li egg</li>
             <li>li fox</li>
         </ul>
         <ul>
             ul
             <li>li dog</li>
-            <li>li egg</li>
+            <li class="test">li egg</li>
             <li>li fox</li>
         </ul>
     </div>
@@ -100,13 +100,18 @@
                 // $(this).find('li').last().css('border-color','green');
 
                 // eq
-                $(this).find('li').eq(0).css('border-color','red');
-                $(this).find('li').eq(1).css('border-color','green');
-                $(this).find('li').eq(2).css('border-color','blue');
+                // $(this).find('li').eq(0).css('border-color','red');
+                // $(this).find('li').eq(1).css('border-color','green');
+                // $(this).find('li').eq(2).css('border-color','blue');
 
                 // index
                 // let getUlIndex = ul.index(this);
                 // console.log('getUlIndex',getUlIndex);
+
+                // fitler
+                $(this).find('li').filter('.test').css('color','#ccc');
+                // $(this).find('.test').css('color','#ccc');
+        
 
             });
 
