@@ -94,12 +94,20 @@
 
            const li = $('li');
            li.click(function () { 
-                const siblings = $(this).siblings();
-                console.log('siblings',siblings);
-                $.each(siblings, function (indexInArray, valueOfElement) { 
-                     let data = $(this).text();
-                     console.log(data);
-                });
+
+                //prev() 變紅色
+                //next() 變綠色
+                li.css('color','');
+                $(this).prev().css('color','red');
+                $(this).next().css('color','green');;
+
+
+                // const siblings = $(this).siblings();
+                // console.log('siblings',siblings);
+                // $.each(siblings, function (indexInArray, valueOfElement) { 
+                //      let data = $(this).text();
+                //      console.log(data);
+                // });
             
            });
 
