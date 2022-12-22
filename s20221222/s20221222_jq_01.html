@@ -162,6 +162,8 @@
                 console.log('ul not(eq)',$(this).parent().parent().find('ul').not(`:eq(${getIndex})`));
                 //jquery not-method  可以接受jquery-object
                 let allUl = $(this).parent().parent().find('ul');
+                console.log('allUl[0]',allUl[0]); //eq(0)
+                console.log('allUl[1]',allUl[1]); //eq(1)
                 // not($( "#selected" )[ 0 ]) 官網提到
                 $(this).parent().parent().find('ul').not(allUl[`${getIndex}`]).css('background-color','black');
                 
