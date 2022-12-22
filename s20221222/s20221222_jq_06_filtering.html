@@ -95,8 +95,18 @@
             ul.click(function(){
                 console.log('this',this);
 
+                // first vs last
                 // $(this).find('li').first().css('border-color','green');
-                $(this).find('li').last().css('border-color','green');
+                // $(this).find('li').last().css('border-color','green');
+
+                // eq
+                $(this).find('li').eq(0).css('border-color','red');
+                $(this).find('li').eq(1).css('border-color','green');
+                $(this).find('li').eq(2).css('border-color','blue');
+
+                // index
+                // let getUlIndex = ul.index(this);
+                // console.log('getUlIndex',getUlIndex);
 
             });
 
