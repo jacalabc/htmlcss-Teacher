@@ -118,17 +118,21 @@
             student.click(function () { 
                 console.log(this);
                 // this <li> <li> 
+
+                //parent parent 上色
+                $(this).parent().parent().css('background-color','lightgreen');
+                // console.log('$(this).parent().parent()', $(this).parent().parent());
                 
                 //init 清除顏色
                 student.css('background-color','');
                 // 哪一層
                 // 由內往外找
-                // $(this).parent().parent().find('ul').css('background-color','');
+                $(this).parent().parent().find('ul').css('background-color','white');
 
                 // 由外往內找
                 // tbodyTr
                 // studentParentParent.find('ul').css('background-color','green');
-                studentParentParent.find('ul').css('background-color','clear');
+                // studentParentParent.find('ul').css('background-color','');
                 
                 //li 上色
                 $(this).css('background-color','cornflowerblue');
@@ -137,7 +141,32 @@
                 //parent 上色
                 $(this).parent().css('background-color','pink');
                 console.log('$(this).parent()', $(this).parent());
+
+                // 練習四 上色
+                // 內往外
+                // $().not()   not method
+                // $('p:not')  selector
+                // index() 抓到這個元件的index
+                // $(this).parent().parent().
+                console.log('li index',$(this).index());
+                console.log('ul li index',$(this).parent().index());
+                let getIndex = $(this).parent().index();
+
+                // 除了這個index ul 變色
+                // $(this) li
+                // $(this).parent() ul
+                // $(this).parent().parent() div
+                // $(this).parent().parent().find('ul') 全部的ul
+                // $(this).parent().parent().find('ul').not(`:eq(${getIndex})`) 全部的ul not(ul index)
                 
+                console.log('ul not(eq)',$(this).parent().parent().find('ul').not(`:eq(${getIndex})`));
+                $(this).parent().parent().find('ul').not(`:eq(${getIndex})`).css('background-color','yellow');
+                $(this).parent().parent().find('ul').not(`:eq(${getIndex})`).find('li').css('background-color','white');
+                // 外往內
+                // const redForm = $('#redForm');
+                // const greenForm = $('#greenForm');
+                // redForm.find('input').css('');
+                // greenForm.find('input').css('');
                 
             });
 
