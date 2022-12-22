@@ -118,9 +118,26 @@
             student.click(function () { 
                 console.log(this);
                 // this <li> <li> 
-                //
+                
+                //init 清除顏色
                 student.css('background-color','');
+                // 哪一層
+                // 由內往外找
+                // $(this).parent().parent().find('ul').css('background-color','');
+
+                // 由外往內找
+                // tbodyTr
+                // studentParentParent.find('ul').css('background-color','green');
+                studentParentParent.find('ul').css('background-color','clear');
+                
+                //li 上色
                 $(this).css('background-color','cornflowerblue');
+                console.log('$(this)', $(this));
+
+                //parent 上色
+                $(this).parent().css('background-color','pink');
+                console.log('$(this).parent()', $(this).parent());
+                
                 
             });
 
