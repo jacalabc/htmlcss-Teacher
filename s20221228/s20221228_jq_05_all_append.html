@@ -11,18 +11,21 @@
             border: 1px solid black;
             height: 300px;
         }
-        div{
+
+        div {
             margin-bottom: 10px;
-            color:red;
+            color: red;
             border: 1px solid red;
             overflow: auto;
         }
-        p{
+
+        p {
             margin-bottom: 10px;
-            color:green;
+            color: green;
             border: 1px solid red;
         }
-        div>button{
+
+        div>button {
             margin-bottom: 10px;
             border: 1px solid blue;
         }
@@ -40,31 +43,31 @@
                 <h4 class="text-center">append</h4>
                 <div class="parentDiv">
                     div
-                    <p class="childP"> 
+                    <p class="childP">
                         p p p
                     </p>
-                    
+
                 </div>
                 <div>
-                    <button type="button">myBtn</button>
+                    <button type="button" data-method="append">myBtn</button>
                 </div>
             </div>
             <div class="box col-6">
                 <h4 class="text-center">prepend</h4>
                 <div>
-                    <button type="button">myBtn</button>
+                    <button type="button" data-method="prepend">myBtn</button>
                 </div>
             </div>
             <div class="box col-6">
                 <h4 class="text-center">after</h4>
                 <div>
-                    <button type="button">myBtn</button>
+                    <button type="button" data-method="after">myBtn</button>
                 </div>
             </div>
             <div class="box col-6">
                 <h4 class="text-center">before</h4>
                 <div>
-                    <button type="button">myBtn</button>
+                    <button type="button" data-method="before">myBtn</button>
                 </div>
             </div>
 
@@ -82,13 +85,43 @@
 
     <script>
         $(function () {
+            function sayHello(data) {
+                console.log(`hello ${data}`);
+            }
+
+            function dataPosition(data) {
+                console.log(`dataPosition ${data}`);
+            }
+
             const myBtn = $('button');
-            myBtn.click(function(){
-                let parentDiv = $(this).parent().parent().find('.parentDiv');                
-                console.log('parentDiv',parentDiv);
+            myBtn.click(function () {
+                let parentDiv = $(this).parent().parent().find('.parentDiv');
+                console.log('parentDiv', parentDiv);
                 parentDiv.append('<p>hello append</p>')
-                
-                
+                let getMethod = $(this).data('method');
+                console.log('getMethod', getMethod);
+                switch (getMethod) {
+                    case 'append':
+                        sayHello(getMethod);
+                        dataPosition('in');
+                        break;
+                    case 'prepend':
+                        sayHello(getMethod);
+                        dataPosition('in');
+                        break;
+                    case 'after':
+                        sayHello(getMethod);
+                        dataPosition('silbling')
+                        break;
+                    case 'before':
+                        sayHello(getMethod);
+                        dataPosition('silbling');
+                        break;
+
+                    default:
+                        break;
+                }
+
             })
 
         });
