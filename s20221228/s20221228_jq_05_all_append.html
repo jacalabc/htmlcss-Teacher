@@ -49,25 +49,25 @@
 
                 </div>
                 <div>
-                    <button type="button" data-method="append">myBtn</button>
+                    <button type="button" data-method123="append">myBtn</button>
                 </div>
             </div>
             <div class="box col-6">
                 <h4 class="text-center">prepend</h4>
                 <div>
-                    <button type="button" data-method="prepend">myBtn</button>
+                    <button type="button" data-method123="prepend">myBtn</button>
                 </div>
             </div>
             <div class="box col-6">
                 <h4 class="text-center">after</h4>
                 <div>
-                    <button type="button" data-method="after">myBtn</button>
+                    <button type="button" data-method123="after">myBtn</button>                    
                 </div>
             </div>
             <div class="box col-6">
                 <h4 class="text-center">before</h4>
                 <div>
-                    <button type="button" data-method="before">myBtn</button>
+                    <button type="button" data-method123="before">myBtn</button>
                 </div>
             </div>
 
@@ -98,7 +98,7 @@
                 let parentDiv = $(this).parent().parent().find('.parentDiv');
                 console.log('parentDiv', parentDiv);
                 parentDiv.append('<p>hello append</p>')
-                let getMethod = $(this).data('method');
+                let getMethod = $(this).data('method123');
                 console.log('getMethod', getMethod);
                 switch (getMethod) {
                     case 'append':
