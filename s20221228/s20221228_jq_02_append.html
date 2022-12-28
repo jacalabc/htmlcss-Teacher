@@ -32,6 +32,16 @@
     </div>
 
     <hr>
+    <h3>append ul</h3>
+    <ul id="myUl">
+        ul
+        <li>hello li</li>
+    </ul>
+    <div>
+        <button type="button" id="myBtnUl">myBtnUl</button>
+    </div>
+
+    <hr>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
@@ -45,13 +55,40 @@
         $(function () {
             const myBtn = $('#myBtn');
             const myDiv = $('#myDiv');
-            console.log(myBtn);
+
+            const myBtnUl = $('#myBtnUl');
+            const myUl = $('#myUl');
+
+            // myBtn
             myBtn.click(function () {
                 console.log('myBtn ok');
-                myDiv.append('55688');
+                // myDiv.append('55688');
                 myDiv.append('<p>55688</p>');
             });
+
+            // myBtnUl
+            let i = 0;
+            myBtnUl.click(function () {
+                console.log('myBtnUl ok');
+                i++;
+                // myUl.append('hello');
+                // myUl.append(`<li>hello ${i}</li>`);
+                myUl.prepend(`<li>hello ${i}</li>`);
+            })
+
+            // append 裡面 最後
+            // prepend 裡面 最前
+
         });
+
+        // append prepend after before
+        // appendTo prepentTo
+        // insertAfter insertBefore
+
+        // 練習一
+        // ul 裡面 增加 li
+
+
     </script>
 
 
