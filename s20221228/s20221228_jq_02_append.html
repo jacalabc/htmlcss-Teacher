@@ -35,7 +35,7 @@
     <h3>append ul</h3>
     <ul id="myUl">
         ul
-        <li>hello li</li>
+        <li id="myLi">hello li</li>
     </ul>
     <div>
         <button type="button" id="myBtnUl">myBtnUl</button>
@@ -58,6 +58,7 @@
 
             const myBtnUl = $('#myBtnUl');
             const myUl = $('#myUl');
+            const myLi = $('#myLi');
 
             // myBtn
             myBtn.click(function () {
@@ -72,9 +73,20 @@
                 console.log('myBtnUl ok');
                 i++;
                 // myUl.append('hello');
-                // myUl.append(`<li>hello ${i}</li>`);
-                myUl.prepend(`<li>hello ${i}</li>`);
+                myUl.append(`<li>hello ${i}</li>`);
+                // myUl.prepend(`<li>hello ${i}</li>`);
+                // myLi.prepend(`<li>hello ${i}</li>`);
             })
+
+            // $(this);
+            // // jq object
+
+            // $(this).find(li);
+            // // jq obejct . method
+
+            // // .find(li) method
+            // $(this).$(this).find(li); // jq obejct . jq obejct
+
 
             // append 裡面 最後
             // prepend 裡面 最前
