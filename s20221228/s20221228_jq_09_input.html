@@ -40,6 +40,8 @@
                             <button type="button" class="btn btn-warning">edit</button>
                             <button type="button" class="btn btn-danger my-del">del</button>
                             <button type="button" class="btn btn-primary my-copy">copy</button>
+                            <button type="button" class="btn btn-success my-clear">clear</button>
+                        
                         </td>
                     </tr>
 
@@ -61,6 +63,7 @@
         $(function () {
             const copyBtn = $('.my-copy');
             const delBtn = $('.my-del');
+            const clearBtn = $('.my-clear');
             copyBtn.click(function () {
                 console.log('copyBtn ok');
                 const trData = $(this).parent().parent().clone(true);
@@ -76,6 +79,16 @@
                 }
 
             })
+
+            clearBtn.click(function(){
+                console.log('clearBtn ok');
+                const getTr = $(this).parent().parent();
+                const getInput = getTr.find('input');
+                getInput.val("");
+                // setVal val("")
+                // getVal val()
+
+            });
         });
 
     </script>
