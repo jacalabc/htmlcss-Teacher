@@ -14,6 +14,9 @@
 
     <h3 class="text-center">input crud</h3>
     <div class="container mt-5">
+        <div>
+            <button type="button" id="addBtn">add</button>
+        </div>
         <form action="">
             <table class="table table-bordered">
                 <thead>
@@ -41,7 +44,7 @@
                             <button type="button" class="btn btn-danger my-del">del</button>
                             <button type="button" class="btn btn-primary my-copy">copy</button>
                             <button type="button" class="btn btn-success my-clear">clear</button>
-                        
+
                         </td>
                     </tr>
 
@@ -64,6 +67,7 @@
             const copyBtn = $('.my-copy');
             const delBtn = $('.my-del');
             const clearBtn = $('.my-clear');
+            const addBtn = $('#addBtn');
             copyBtn.click(function () {
                 console.log('copyBtn ok');
                 const trData = $(this).parent().parent().clone(true);
@@ -80,15 +84,38 @@
 
             })
 
-            clearBtn.click(function(){
+            clearBtn.click(function () {
                 console.log('clearBtn ok');
                 const getTr = $(this).parent().parent();
                 const getInput = getTr.find('input');
                 getInput.val("");
                 // setVal val("")
                 // getVal val()
-
             });
+            addBtn.click(function () {
+                let addData = `
+                    <tr>
+                        <td>
+                            <input type="text" name="name" id="" value="">
+                        </td>
+                        <td>
+                            <input type="text" name="age" id="" value="">
+                        </td>
+                        <td>
+                            <input type="text" name="mobile" id="" value="">
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning">edit</button>
+                            <button type="button" class="btn btn-danger my-del">del</button>
+                            <button type="button" class="btn btn-primary my-copy">copy</button>
+                            <button type="button" class="btn btn-success my-clear">clear</button>
+                        
+                        </td>
+                    </tr>
+                `
+                $('tbody').append(addData);
+
+            })
         });
 
     </script>
