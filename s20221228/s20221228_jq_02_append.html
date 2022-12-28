@@ -21,7 +21,7 @@
 <body>
 
     <h3>append</h3>
-    <div>
+    <div id="myDiv">
         hello div
         <p>
             hello p
@@ -43,10 +43,15 @@
 
     <script>
         $(function () {
-
-
+            const myBtn = $('#myBtn');
+            const myDiv = $('#myDiv');
+            console.log(myBtn);
+            myBtn.click(function () {
+                console.log('myBtn ok');
+                myDiv.append('55688');
+                myDiv.append('<p>55688</p>');
+            });
         });
-
     </script>
 
 
