@@ -32,8 +32,8 @@
                         <td>0911-111-111</td>
                         <td>
                             <button type="button" class="btn btn-warning">edit</button>
-                            <button type="button" class="btn btn-danger">del</button>
-                            <button type="button" class="btn btn-primary my-copy" >copy</button>
+                            <button type="button" class="btn btn-danger my-del">del</button>
+                            <button type="button" class="btn btn-primary my-copy">copy</button>
                         </td>
                     </tr>
                     <tr>
@@ -42,8 +42,8 @@
                         <td>0922-222-222</td>
                         <td>
                             <button type="button" class="btn btn-warning">edit</button>
-                            <button type="button" class="btn btn-danger">del</button>
-                            <button type="button" class="btn btn-primary my-copy" >copy</button>
+                            <button type="button" class="btn btn-danger my-del">del</button>
+                            <button type="button" class="btn btn-primary my-copy">copy</button>
                         </td>
                     </tr>
                     <tr>
@@ -52,8 +52,8 @@
                         <td>0933-333-333</td>
                         <td>
                             <button type="button" class="btn btn-warning">edit</button>
-                            <button type="button" class="btn btn-danger">del</button>
-                            <button type="button" class="btn btn-primary my-copy" >copy</button>
+                            <button type="button" class="btn btn-danger my-del">del</button>
+                            <button type="button" class="btn btn-primary my-copy">copy</button>
                         </td>
                     </tr>
                 </tbody>
@@ -73,11 +73,22 @@
     <script>
         $(function () {
             const copyBtn = $('.my-copy');
+            const delBtn = $('.my-del');
             copyBtn.click(function () {
                 console.log('copyBtn ok');
                 const trData = $(this).parent().parent().clone(true);
                 $('tbody').append(trData);
             });
+
+            delBtn.click(function () {
+                const getTr = $(this).parent().parent();
+                let getTrNum = $('tbody > tr').length;
+                console.log('getTrNum', getTrNum);
+                if (getTrNum > 1) {
+                    getTr.remove();
+                }
+
+            })
         });
 
     </script>
