@@ -41,7 +41,34 @@
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-     
+        $(function () {
+            myForm = $('#myForm');
+            // 
+            myForm.submit(function (event) {
+                console.log(event);
+                // preventDefault() 不要讓我的submit 送出
+                event.preventDefault();
+                // serialize() 序列化
+                console.log('this',this);
+                var values = $(this).serialize();
+                console.log('values',values);
+
+            });
+
+
+            // $.ajax({
+            //     url: "./getData01.php",
+            //     type: "get",
+            //     data: values,
+            //     success: function (response) {
+
+            //         // You will get response from your PHP page (what you echo or print)
+            //     },
+            //     // error: function (jqXHR, textStatus, errorThrown) {
+            //     //     console.log(textStatus, errorThrown);
+            //     // }
+            // });
+        });
     </script>
 
 </body>
