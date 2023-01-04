@@ -53,6 +53,16 @@
                 var values = $(this).serialize();
                 console.log('values', values);
 
+                let i = {
+                    url:value,
+                    type:value,
+                    data:value,
+                    dataType:value,
+                    success:function(res){
+                        
+                    },
+                };
+
                 // ajax start
                 $.ajax({
                     url: "./getData01.php",
