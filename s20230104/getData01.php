@@ -7,7 +7,5 @@
 
     $data = $_GET;
     dd($data);
-
-
     
 ?>
