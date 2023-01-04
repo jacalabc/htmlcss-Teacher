@@ -6,6 +6,8 @@ function dd($data)
     echo '</pre>';
 }
 
+
+
 $data = $_GET;
 // dd($data);
 echo json_encode($data);

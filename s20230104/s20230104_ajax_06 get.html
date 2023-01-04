@@ -21,7 +21,7 @@
 
 <body>
     <div>
-        <form action="./getData02.php" method="get" id="myForm">
+        <form action="./sumData.php" method="get" id="myForm">
             <p>
                 <label for="num1">num1 ?</label>
                 <input type="text" name="num1" id="num1">
@@ -29,6 +29,10 @@
             <p>
                 <label for="num2">num2 ?</label>
                 <input type="text" name="num2" id="num2">
+            </p>
+            <p>
+                <label for="option">option ?</label>
+                <input type="text" name="option" id="option">
             </p>
             <p>
                 <input type="submit" value="submit">
@@ -40,6 +44,7 @@
 
         </form>
     </div>
+    <script src="./js/myJS.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
@@ -53,31 +58,73 @@
                 console.log(event);
                 //preventDefault() //不要讓我的submit 送出
                 event.preventDefault();
-                // serialize() 序列化
+                // serialize() 序列化 num1=22&num2=222&option=2222
+                // serializeArray() 序列化 Array  [{…}, {…}, {…}]
                 console.log('this', this);
-                var values = $(this).serialize();
+                // var values = $(this).serialize();
+                var values = $(this).serializeArray();
                 console.log('values', values);
+                let myData = {
+                    's1': 'amy',
+                    's2': 'bob',
+                    's3': 'cat',
+                    'data': values
+                }
 
                 // ajax start
                 $.ajax({
-                    url: "./getData02.php",
+                    url: "./getObject.php",
                     type: "get",
-                    data: values,
+                    data: myData,
                     dataType: 'json',
                     success: function (res) {
                         console.log('res', res);
-                        myP.text(res.result);
-                        
+                        // myP.text(res.result);
+
                         // console.log('res.mobile',res.mobile);
                         // You will get response from your PHP page (what you echo or print)
                     },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        console.log('jqXHR', jqXHR);
-                        console.log('textStatus', textStatus);
-                        console.log('errorThrown', errorThrown);
-                    }
+                    // error: function (jqXHR, textStatus, errorThrown) {
+                    //     console.log('jqXHR', jqXHR);
+                    //     console.log('textStatus', textStatus);
+                    //     console.log('errorThrown', errorThrown);
+                    // }
                 });
                 // ajax end
+
+                // get start
+                $.get("url", data,
+                    function (data, textStatus, jqXHR) {
+                        
+                    },
+                    "dataType"
+                );
+
+                $.getJSON("url", data,
+                    function (data, textStatus, jqXHR) {
+                        
+                    }
+                );
+
+                $.get({
+                    url: "./getObject.php",
+                    type: "get",
+                    data: myData,
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log('res', res);
+                        // myP.text(res.result);
+
+                        // console.log('res.mobile',res.mobile);
+                        // You will get response from your PHP page (what you echo or print)
+                    },
+                    // error: function (jqXHR, textStatus, errorThrown) {
+                    //     console.log('jqXHR', jqXHR);
+                    //     console.log('textStatus', textStatus);
+                    //     console.log('errorThrown', errorThrown);
+                    // }
+                });
+                // get end
 
                 // 練習
                 // html 
