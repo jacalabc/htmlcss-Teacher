@@ -12,7 +12,27 @@ $data = $_GET;
 
 $num1 = $data['num1'];
 $num2 = $data['num2'];
-$result = $num1 + $num2;
+$option = $data['option'];
+$result = 0;
+switch ($option) {
+    case '+':
+        $result = $num1 + $num2;
+        break;
+    case '-':
+        $result = $num1 - $num2;
+        break;
+    case '*':
+        $result = $num1 * $num2;
+        break;
+    case '/':
+        $result = $num1 / $num2;
+        break;
+
+    default:
+        $result = "option 請輸入+ - * /";
+        break;
+}
+
 
 // dd($data);
 // dd($result);
