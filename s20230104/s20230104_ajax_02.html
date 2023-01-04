@@ -21,17 +21,21 @@
 
 <body>
     <div>
-        <form action="./getData01.php" method="post" id="myForm">
+        <form action="./sumData.php" method="get" id="myForm">
             <p>
-                <label for="name">姓名 ?</label>
-                <input type="text" name="name" id="name">
+                <label for="num1">num1 ?</label>
+                <input type="text" name="num1" id="num1">
             </p>
             <p>
-                <label for="mobile">電話 ?</label>
-                <input type="text" name="mobile" id="mobile">
+                <label for="num2">num2 ?</label>
+                <input type="text" name="num2" id="num2">
             </p>
             <p>
                 <input type="submit" value="submit">
+            </p>
+
+            <p id="myP">
+
             </p>
 
         </form>
@@ -43,10 +47,11 @@
     <script>
         $(function () {
             const myForm = $('#myForm');
+            const myP = $('#myP');
             // 
             myForm.submit(function (event) {
                 console.log(event);
-                // preventDefault() 不要讓我的submit 送出
+                //preventDefault() //不要讓我的submit 送出
                 event.preventDefault();
                 // serialize() 序列化
                 console.log('this', this);
@@ -55,14 +60,14 @@
 
                 // ajax start
                 $.ajax({
-                    url: "./getData01.php",
-                    type: "post",
+                    url: "./sumData.php",
+                    type: "get",
                     data: values,
                     dataType: 'json',
                     success: function (res) {
                         console.log('res', res);
-                        console.log('res.name', res['name']);
-                        console.log('res.mobile', res.mobile);
+                        myP.text(res.result);
+                        
                         // console.log('res.mobile',res.mobile);
                         // You will get response from your PHP page (what you echo or print)
                     },
@@ -72,7 +77,7 @@
                     //     console.log('errorThrown', errorThrown);
                     // }
                 });
-                // ajax stop
+                // ajax end
 
                 // 練習
                 // html 

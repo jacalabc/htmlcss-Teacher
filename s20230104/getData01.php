@@ -6,7 +6,7 @@
     }
 
     // $data = $_GET;
-    $data = $_POST;
+    // $data = $_POST;
     // dd($data);
     // echo "123";
     // $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
