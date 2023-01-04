@@ -21,7 +21,7 @@
 
 <body>
     <div>
-        <form action="./getData01.php" method="get" id="myForm">
+        <form action="./getData01.php" method="post" id="myForm">
             <p>
                 <label for="name">姓名 ?</label>
                 <input type="text" name="name" id="name">
@@ -42,7 +42,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(function () {
-
             const myForm = $('#myForm');
             // 
             myForm.submit(function (event) {
@@ -57,10 +56,12 @@
                 // ajax start
                 $.ajax({
                     url: "./getData01.php",
-                    type: "get",
+                    type: "post",
                     data: values,
-                    success: function (response) {
-                        console.log('response', response);
+                    success: function (res) {
+                        console.log('res', res);
+                        console.log('res',res['name']);
+                        // console.log('res.mobile',res.mobile);
                         // You will get response from your PHP page (what you echo or print)
                     },
                     // error: function (jqXHR, textStatus, errorThrown) {
