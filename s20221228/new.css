@@ -34,11 +34,83 @@ body {
   background: url('./imges/num2.png');
 }
 
+#myPic0 {  
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background: url('./imges/num2.png');
+}
+
 #myPic1 {  
   border: 1px solid black;
   width: 100px;
   height: 100px;
   background: url('./imges/num2.png');
+  background-position: -100px;
+}
+
+#myPic2 {  
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background: url('./imges/num2.png');
+  background-position: -200px;
+}
+
+#myPic3 {  
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background: url('./imges/num2.png');
+  background-position: -300px;
+}
+
+#myPic4 {  
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background: url('./imges/num2.png');
+  background-position: -400px;
+}
+
+#myPic5 {  
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background: url('./imges/num2.png');
+  background-position: -500px;
+}
+
+#myPic6 {  
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background: url('./imges/num2.png');
+  background-position: -600px;
+}
+
+#myPic7 {  
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background: url('./imges/num2.png');
+  background-position: -700px;
+}
+
+#myPic8 {  
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background: url('./imges/num2.png');
+  background-position: -800px;
+}
+
+#myPic9 {  
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background: url('./imges/num2.png');
+  background-position: -900px;
 }
 
 #myPicRight {  
