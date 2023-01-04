@@ -27,6 +27,13 @@ body {
   background: url('./imges/num2.png');
 }
 
+#myPic1 {  
+  border: 1px solid black;
+  width: 1050px;
+  height: 100px;
+  background: url('./imges/num2.png');
+}
+
 .mgd {
   width: 50px;
   height: 100px;
