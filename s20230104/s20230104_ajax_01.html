@@ -58,9 +58,11 @@
                     url: "./getData01.php",
                     type: "post",
                     data: values,
+                    dataType: 'json',
                     success: function (res) {
                         console.log('res', res);
-                        console.log('res',res['name']);
+                        console.log('res.name', res['name']);
+                        console.log('res.mobile', res.mobile);
                         // console.log('res.mobile',res.mobile);
                         // You will get response from your PHP page (what you echo or print)
                     },
