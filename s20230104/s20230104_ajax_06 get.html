@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         div {
             margin: 0 auto;
@@ -44,7 +45,12 @@
 
         </form>
     </div>
-    <script src="./js/myJS.js"></script>
+    <script src="./js/myJS.js">
+    </script>
+    <script>
+        console.log('i', i);
+    </script>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
@@ -72,27 +78,44 @@
                 }
 
                 // ajax start
-                $.ajax({
-                    url: "./getObject.php",
-                    type: "get",
-                    data: myData,
-                    dataType: 'json',
-                    success: function (res) {
-                        console.log('res', res);
-                        // myP.text(res.result);
+                // $.ajax({
+                //     url: "./getObject.php",
+                //     type: "get",
+                //     data: myData,
+                //     dataType: 'json',
+                //     success: function (res) {
+                //         console.log('res', res);
+                //         myP.text(res.result);
+                //         // res.dic.location
+                //         // filter
+                //         // dic
 
-                        // console.log('res.mobile',res.mobile);
-                        // You will get response from your PHP page (what you echo or print)
-                    },
-                    // error: function (jqXHR, textStatus, errorThrown) {
-                    //     console.log('jqXHR', jqXHR);
-                    //     console.log('textStatus', textStatus);
-                    //     console.log('errorThrown', errorThrown);
-                    // }
-                });
+
+                //         // console.log('res.mobile',res.mobile);
+                //         // You will get response from your PHP page (what you echo or print)
+                //     },
+                //     // error: function (jqXHR, textStatus, errorThrown) {
+                //     //     console.log('jqXHR', jqXHR);
+                //     //     console.log('textStatus', textStatus);
+                //     //     console.log('errorThrown', errorThrown);
+                //     // }
+                // });
                 // ajax end
 
                 // get start
+                // $.get("./getObject.php", myData,
+                //     function (res, textStatus, jqXHR) {
+                //         console.log('res', res);
+                //     },
+                //     "json"
+                // );
+
+                // $.getJSON("./getObject.php", myData,
+                //     function (res, textStatus, jqXHR) {
+                //         console.log('res', res);
+                //     }
+                // );
+
                 $.get("url", data,
                     function (data, textStatus, jqXHR) {
                         
@@ -100,30 +123,26 @@
                     "dataType"
                 );
 
-                $.getJSON("url", data,
-                    function (data, textStatus, jqXHR) {
-                        
-                    }
-                );
+               
 
-                $.get({
-                    url: "./getObject.php",
-                    type: "get",
-                    data: myData,
-                    dataType: 'json',
-                    success: function (res) {
-                        console.log('res', res);
-                        // myP.text(res.result);
+                // $.ajax({
+                //     url: "./getObject.php",
+                //     type: "get",
+                //     data: myData,
+                //     dataType: 'json',
+                //     success: function (res) {
+                //         console.log('res', res);
+                //         // myP.text(res.result);
 
-                        // console.log('res.mobile',res.mobile);
-                        // You will get response from your PHP page (what you echo or print)
-                    },
-                    // error: function (jqXHR, textStatus, errorThrown) {
-                    //     console.log('jqXHR', jqXHR);
-                    //     console.log('textStatus', textStatus);
-                    //     console.log('errorThrown', errorThrown);
-                    // }
-                });
+                //         // console.log('res.mobile',res.mobile);
+                //         // You will get response from your PHP page (what you echo or print)
+                //     },
+                //     // error: function (jqXHR, textStatus, errorThrown) {
+                //     //     console.log('jqXHR', jqXHR);
+                //     //     console.log('textStatus', textStatus);
+                //     //     console.log('errorThrown', errorThrown);
+                //     // }
+                // });
                 // get end
 
                 // 練習
