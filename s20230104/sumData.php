@@ -6,11 +6,11 @@ function dd($data)
     echo '</pre>';
 }
 
-// $data = $_GET;
-$data = [
-    'name' => 'amy',
-    'mobile' => '0911-111-111',
-];
+$data = $_GET;
+// $data = [
+//     'name' => 'amy',
+//     'mobile' => '0911-111-111',
+// ];
 // $data = $_POST;
 // $data = $_POST;
 
