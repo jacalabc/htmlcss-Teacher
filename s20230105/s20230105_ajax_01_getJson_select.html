@@ -65,12 +65,18 @@
 
                             // $(selector).append(content);
 
+                            // 小練習
+                            // value = key
+                            // 顯示部分 = "key 區域 名稱"
+
+                            //<option value="volvo">Volvo</option>
+
                             let contentText = `
-                                <option value="volvo">Volvo</option>
+                                <option value= "${key}">${key} ${value.sarea} ${value.sna}</option>
                             `;
                             mySelect.append(contentText);
                         });
-                        
+
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         // console.log('jqXHR', jqXHR);
