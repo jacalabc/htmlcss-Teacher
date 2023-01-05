@@ -17,6 +17,7 @@
     <!-- SELECT * FROM table 實際工作少用 當資料多幾萬筆 幾十萬筆時 會很慢 會當掉 -->
     <table id="example" class="display" style="width:100%">
         <thead>
+            <!-- thead tbody tfoot 三個 th / td 要相等 -->
             <tr>
                 <th>id</th>
                 <th>電話</th>
@@ -63,8 +64,32 @@
 
             // let textContent = '';
 
-            $.getJSON("./js/factory.json",
-                function (res, textStatus, jqXHR) {
+            // $.getJSON("./js/factory.json",
+            //     function (res, textStatus, jqXHR) {
+            //         console.log('res', res);
+            //         let textContent = "";
+            //         $.each(res, function (key, value) {
+            //             textContent += `
+            //             <tr>
+            //                 <td>${key + 1}</td>
+            //                 <td>${value.tel}</td>
+            //                 <td>${value.features}</td>
+            //                 <td>${value.title}</td>
+            //                 <td>${value.address}</td>
+            //             </tr>
+            //             `;
+            //         });
+            //         tbody.append(textContent);
+            //         $('#example').DataTable();
+            //     }
+            // );
+
+            // ajax
+            $.ajax({
+                url: "./js/factory.json",
+                type: "get",
+                dataType: 'json',
+                success: function (res) {
                     console.log('res', res);
                     let textContent = "";
                     $.each(res, function (key, value) {
@@ -79,12 +104,18 @@
                         `;
                     });
                     tbody.append(textContent);
+                    // 一開始不跑 DataTable()
+                    // 載入資料後才跑
                     $('#example').DataTable();
 
-
-
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    // console.log('jqXHR', jqXHR);
+                    // console.log('textStatus', textStatus);
+                    // console.log('errorThrown', errorThrown);
                 }
-            );
+            });
+            // ajax end
         });
 
     </script>
