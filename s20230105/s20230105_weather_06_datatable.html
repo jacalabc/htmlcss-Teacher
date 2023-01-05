@@ -16,6 +16,9 @@
             <tr>
                 <th>no.</th>
                 <th>location</th>
+                <th>location</th>
+                <th>location</th>
+                <th>location</th>
             </tr>
         </thead>
         <tbody>
@@ -24,12 +27,7 @@
                 <td></td>
             </tr> -->
         </tbody>
-        <tfoot>
-            <tr>
-                <th>no.</th>
-                <th>location</th>
-            </tr>
-        </tfoot>
+       
     </table>
 
 
@@ -57,17 +55,33 @@
                     console.log('res.records', res.records);
                     console.log('res.records.location', res.records.location);
 
-                    let contentText = "";
-                    $.each(res.records.location, function (key, value) {
-                        contentText += `
-                        <tr>
-                            <td>${key+1}</td>
-                            <td>${value.locationName}</td>
-                        </tr>
-                        `;
-                    });
-                    tbody.append(contentText);
+                    let data = res.records.location;
+
                     $('#example').DataTable({
+                        data: data,
+                        columns: [{
+                            data: 'locationName',
+                            title: '55688'
+
+                        },
+                        {
+                            data: 'locationName',
+                            title: 'hello'
+                        },
+                        {
+                            data: 'locationName',
+                            title: 'hello'
+                        },
+                        {
+                            data: 'locationName',
+                            title: 'hello'
+                        },
+                        {
+                            data: 'locationName',
+                            title: 'hello'
+                        },
+
+                        ],
                         language: {
                             "lengthMenu": "顯示 _MENU_ 筆資料",
                             "sProcessing": "處理中...",
@@ -99,21 +113,7 @@
                     });
 
 
-                    // let contentText = `
-                    //     <tr>
-                    //         <td>123</td>
-                    //         <td>456</td>
-                    //     </tr>
-                    // `;
 
-
-                    //key locationName
-
-                    // $.each(res.records.location, function (key, value) {
-                    //     console.log('key', key);
-                    //     console.log('value', value);
-                    //     console.log('value', value.locationName);
-                    // });
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
