@@ -24,12 +24,11 @@
         <button type="button" id="myBtn">myBtn</button>
         <br>
         <select name="mySelect" id="mySelect">
-           
-            <!-- <option value="">123</option>
-            <option value="">123</option> -->
+            <option value="volvo">Volvo</option>
         </select>
+
     </div>
-   
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
@@ -46,6 +45,8 @@
                 //         console.log('data.lastName', data.lastName);
                 //     }
                 // );
+                console.log('click ok');
+
 
                 $.ajax({
                     url: "./js/youBike.json",
@@ -55,26 +56,26 @@
                         console.log('res', res);
                         console.log('res[0]', res[0].sna);
                         console.log('res[1]', res[1].sna);
+
                         $.each(res, function (key, value) {
                             console.log('key', key);
-                             console.log('value',value);
-                            console.log('value.sna', value.sna);
+                            // console.log('value', value);
+                            console.log('value', value.sarea);
+                            console.log('value', value.sna);
 
-                            $dataText = `
-                            <option value="${key}">${key} ${value.sna}</option>
+                            // $(selector).append(content);
+
+                            let contentText = `
+                                <option value="volvo">Volvo</option>
                             `;
-                            mySelect.append($dataText);
-                            
+                            mySelect.append(contentText);
                         });
-                        //   
-
-                        // console.log('res.mobile',res.mobile);
-                        // You will get response from your PHP page (what you echo or print)
+                        
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        console.log('jqXHR', jqXHR);
-                        console.log('textStatus', textStatus);
-                        console.log('errorThrown', errorThrown);
+                        // console.log('jqXHR', jqXHR);
+                        // console.log('textStatus', textStatus);
+                        // console.log('errorThrown', errorThrown);
                     }
                 });
             })

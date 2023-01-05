@@ -46,7 +46,16 @@ $myArr = [
     'num1' => $num1,
     'num2' => $num2,
     'result' => $result,
+    'message' => 'xxxxx',
+    'error_num' => 1
 ];
+
+
+
+// $data = [
+//     'message' => 'xxxxx',
+//     'error_num' => 1
+// ];
 
 // dd($myArr);
 echo json_encode($myArr);
