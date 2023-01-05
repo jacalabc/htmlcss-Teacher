@@ -6,7 +6,9 @@ function dd($data)
     echo '</pre>';
 }
 
-
+// num1
+// num2
+// option
 
 $data = $_POST;
 // dd($data);
