@@ -16,7 +16,7 @@
     </ul>
 
     <p id="minP">
-        
+
     </p>
     <br>
     <p id="maxP">
@@ -63,9 +63,9 @@
                     // console.log('data[0].locationName typeof', typeof (data[0].locationName));
 
                     // 練習二 取得 澎湖 連江縣 的 object 與 locationName
-                    // console.log('data[19].locationName object', data[19]);
+                    // console.log('data[19] object', data[19]);
                     // console.log('data[19].locationName', data[19].locationName);
-                    // console.log('data[21].locationName object', data[21]);
+                    // console.log('data[21] object', data[21]);
                     // console.log('data[21].locationName', data[21].locationName);
 
                     // 練習三 取得 澎湖 與 連江縣 第一組 startTime 最低溫度 最高溫度
@@ -83,15 +83,26 @@
                     // console.log("data[19].weatherElement[4].time[0].parameter object", data[19].weatherElement[4].time[0].parameter);
                     // console.log("data[19].weatherElement[4].time[0].parameter.parameterName object", data[19].weatherElement[4].time[0].parameter.parameterName);
 
-                    let minP19 = data[19].weatherElement[2].time[0].parameter.parameterName;
-                    let maxP19 = data[19].weatherElement[4].time[0].parameter.parameterName;
-                    console.log('minP19',minP19);
+                    // let minP19 = data[19].weatherElement[2].time[0].parameter.parameterName;
+                    // let maxP19 = data[19].weatherElement[4].time[0].parameter.parameterName;
+                    // console.log('minP19', minP19);
 
-                    minP.text(minP19);
-                    maxP.text(maxP19);
-
+                    // minP.text(minP19);
+                    // maxP.text(maxP19);
 
                     // 練習四 每個縣市 第一組 startTime 最低溫度 最高溫度
+
+                    $.each(data, function (key, value) {
+                        // console.log(key);
+                        // console.log(value); 
+                        // console.log(value.locationName); //名稱
+                        let minText = value.weatherElement[2].time[0].parameter.parameterName;
+                        let maxText = value.weatherElement[4].time[0].parameter.parameterName;
+                        let sum = `
+                        ${value.locationName} => ${minText} - ${maxText}
+                        `;
+                        console.log(sum);
+                    });
 
                     // 練習五 將資料放入boostrap5 table內顯示
 
@@ -102,10 +113,10 @@
 
                         // 練習一 縣市 + startTime
 
-                        let textContext = `
-                            <li>${key + 1} ${value.locationName}</li>
-                        `;
-                        myUl.append(textContext);
+                        // let textContext = `
+                        //     <li>${key + 1} ${value.locationName}</li>
+                        // `;
+                        // myUl.append(textContext);
                     });
                     ;
                 },
