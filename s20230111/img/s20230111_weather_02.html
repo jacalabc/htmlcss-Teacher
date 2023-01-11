@@ -93,15 +93,13 @@
                     // 練習四 每個縣市 第一組 startTime 最低溫度 最高溫度
 
                     $.each(data, function (key, value) {
-                        // console.log(key);
-                        // console.log(value); 
-                        // console.log(value.locationName); //名稱
                         let minText = value.weatherElement[2].time[0].parameter.parameterName;
                         let maxText = value.weatherElement[4].time[0].parameter.parameterName;
                         let sum = `
-                        ${value.locationName} => ${minText} - ${maxText}
+                        ${value.locationName} => ${minText} - ${maxText} <br>
                         `;
                         console.log(sum);
+                        myUl.append(sum);
                     });
 
                     // 練習五 將資料放入boostrap5 table內顯示
