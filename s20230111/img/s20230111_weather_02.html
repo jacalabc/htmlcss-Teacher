@@ -48,10 +48,16 @@
                     console.log('res', res);
                     let data = res.records.location;
                     console.log('data', data);
-                    console.log('data typeof', typeof (data));
+                    console.log('data[0]',data[0]);
+                    console.log('data[0].locationName',data[0].locationName);
+                    console.log('data[0].locationName typeof',typeof(data[0].locationName));
+                    // console.log('data typeof', typeof (data));
                     $.each(data, function (key, value) {
-                        console.log(key);
-                        console.log(value.locationName);
+                        // console.log(key);
+                        // console.log(value.locationName);
+
+                        // 縣市 + startTime
+
                         let textContext = `
                             <li>${key+1} ${value.locationName}</li>
                         `;
