@@ -15,6 +15,7 @@
         
     </ul>
 
+    <button id="myBtn">Print</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
@@ -23,15 +24,24 @@
     <script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
     <script>
+        // 政府開放平台 太多人同時使用 把我們暫時封鎖
         // https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=rdec-key-123-45678-011121314
+
+        // https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0ECFB19-DA53-46EF-BC76-146F83535780
+
         $(function () {
 
             const myUl = $('#myUl');
+            const myBtn = $('#myBtn');
 
+            myBtn.click(function(){
+                window.print();
+            });
+        
 
             // ajax 範本
             $.ajax({
-                url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=rdec-key-123-45678-011121314",
+                url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0ECFB19-DA53-46EF-BC76-146F83535780",
                 type: "get",
                 dataType: 'json',
                 success: function (res) {
@@ -44,7 +54,7 @@
                         console.log(value.locationName);
                         let textContext = `
                             <li>${key+1} ${value.locationName}</li>
-                        `
+                        `;
                         myUl.append(textContext);
                     });
                     ;
