@@ -12,7 +12,7 @@
 <body>
     <h3>天氣預報資料</h3>
     <ul id="myUl">
-        
+
     </ul>
 
     <button id="myBtn">Print</button>
@@ -34,10 +34,10 @@
             const myUl = $('#myUl');
             const myBtn = $('#myBtn');
 
-            myBtn.click(function(){
+            myBtn.click(function () {
                 window.print();
             });
-        
+
 
             // ajax 範本
             $.ajax({
@@ -48,17 +48,23 @@
                     console.log('res', res);
                     let data = res.records.location;
                     console.log('data', data);
-                    console.log('data[0]',data[0]);
-                    console.log('data[0].locationName',data[0].locationName); 
-                    console.log('data[0].locationName typeof',typeof(data[0].locationName));
+                    console.log('data[0]', data[0]);
+                    console.log('data[0].locationName', data[0].locationName);
+                    console.log('data[0].locationName typeof', typeof (data[0].locationName));
 
                     // 練習二 取得 澎湖 連江縣 的 object 與 locationName
-                    console.log('data[0].locationName object',data[19]); 
-                    console.log('data[0].locationName',data[19].locationName); 
-                    console.log('data[0].locationName object',data[21]); 
-                    console.log('data[0].locationName',data[21].locationName); 
+                    console.log('data[19].locationName object', data[19]);
+                    console.log('data[19].locationName', data[19].locationName);
+                    console.log('data[21].locationName object', data[21]);
+                    console.log('data[21].locationName', data[21].locationName);
 
                     // 練習三 取得 澎湖 與 連江縣 第一組 startTime 最低溫度 最高溫度
+                    // 最低溫度
+                    console.log('data[19].weatherElement object', data[19].weatherElement);
+                    console.log('data[19].weatherElement[2] object', data[19].weatherElement[2]);
+                    console.log('data[19].weatherElement[2].time object', data[19].weatherElement[2].time);
+                    console.log("data[19].weatherElement[2].time[0].parameter object", data[19].weatherElement[2].time[0].parameter);
+                    console.log("data[19].weatherElement[2].time[0].parameter.parameterName object", data[19].weatherElement[2].time[0].parameter.parameterName);
 
                     // 練習四 每個縣市 第一組 startTime 最低溫度 最高溫度
 
@@ -72,7 +78,7 @@
                         // 練習一 縣市 + startTime
 
                         let textContext = `
-                            <li>${key+1} ${value.locationName}</li>
+                            <li>${key + 1} ${value.locationName}</li>
                         `;
                         myUl.append(textContext);
                     });
