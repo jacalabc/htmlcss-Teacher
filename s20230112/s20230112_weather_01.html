@@ -27,7 +27,6 @@
                 <tr>
                     <th class="w-3" style="width: 5%;">序號</th>sdfsdfdsfdsfdsfdsfdsfds
                     <th style="width: 10%;">地點</th>
-                    <th style="width: 10%;">最低溫度</th>
                     <th><span id="time1">time1</span> 低-高溫</th>
                     <th><span id="time2">time2</span> 低-高溫</th>
                     <th><span id="time3">time3</span> 低-高溫</th>
@@ -145,16 +144,35 @@
 
                         // 練習一 縣市 + startTime
                         if (key < 5) {
+                            let time1Text = `
+                            ${value.weatherElement[2].time[0].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[4].time[0].parameter.parameterName} 
+                             `;
+
+                            let time2Text = `
+                            ${value.weatherElement[2].time[1].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[4].time[1].parameter.parameterName} 
+                             `;
+
+                            let time3Text = `
+                            ${value.weatherElement[2].time[2].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[4].time[2].parameter.parameterName} 
+                             `;
+
                             let textContext = `
                             <tr>
                                 <td>${key + 1}</td>
                                 <td>${value.locationName}</td>
-                                <td>${value.weatherElement[2].time[0].parameter.parameterName}</td>
-                                <td>${value.weatherElement[4].time[0].parameter.parameterName}</td>
+                                <td>${time1Text}</td>
+                                <td>${time2Text}</td>
+                                <td>${time3Text}</td>
                             </tr>
                         `;
                             myTbody.append(textContext);
-                        }else{
+                        } else {
                             return false;
                         }
 
