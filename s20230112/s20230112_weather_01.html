@@ -36,9 +36,11 @@
         <hr>
         <div class="text-center mb-5">
             <select name="" id="mySelect">
-                
+                <option value="">可樂</option>
+                <option value="">雪碧</option>
+                <option value="">香草可樂</option>
             </select>
-            <button type="button" id="getSelect">getSelectBtn</button>
+            <button type="button" id="getSelectBtn">getSelectBtn</button>
         </div>
         <hr>
         <table class="table table-striped text-center">
@@ -183,16 +185,28 @@
             const minP = $('#minP');
             const maxP = $('#maxP');
             const myTbody = $('#myTbody');
-
+            
             const time1 = $('#time1');
             const time2 = $('#time2');
             const time3 = $('#time3');
-
+            
             const mySelect = $("#mySelect");
+            const getSelectBtn = $('#getSelectBtn');
 
             let data = {};
 
             let timeObj = {};
+
+            getSelectBtn.click(function(){
+                console.log('getSelectBtn ok');
+                let getSelectValue = mySelect.val();
+                console.log('getSelectValue',getSelectValue);
+
+                myTbody.html('');
+                // let getLocation = $(this).data('location');
+                eachShowData(getSelectValue);
+
+            });
 
             myBtn.click(function () {
                 window.print();
@@ -216,6 +230,7 @@
             //     let getLocation = $(this).data('location');
             //     eachShowData(getLocation);
             // })
+
             selectBtnAll.click(function () {
                 console.log('data', data);
                 myTbody.html('');
@@ -239,64 +254,13 @@
                     time1.text(timeText1);
                     time2.text(timeText2);
                     time3.text(timeText3);
-
-                    // console.log('data[0]', data[0]);
-                    // console.log('data[0].locationName', data[0].locationName);
-                    // console.log('data[0].locationName typeof', typeof (data[0].locationName));
-
-                    // 練習二 取得 澎湖 連江縣 的 object 與 locationName
-                    // console.log('data[19] object', data[19]);
-                    // console.log('data[19].locationName', data[19].locationName);
-                    // console.log('data[21] object', data[21]);
-                    // console.log('data[21].locationName', data[21].locationName);
-
-                    // 練習三 取得 澎湖 與 連江縣 第一組 startTime 最低溫度 最高溫度
-                    // 最低溫度
-                    // console.log('data[19].weatherElement object', data[19].weatherElement);
-                    // console.log('data[19].weatherElement[2] object', data[19].weatherElement[2]);
-                    // console.log('data[19].weatherElement[2].time object', data[19].weatherElement[2].time);
-                    // console.log("data[19].weatherElement[2].time[0].parameter object", data[19].weatherElement[2].time[0].parameter);
-                    // console.log("data[19].weatherElement[2].time[0].parameter.parameterName object", data[19].weatherElement[2].time[0].parameter.parameterName);
-
-                    // 最高溫度
-                    // console.log('data[19].weatherElement object', data[19].weatherElement);
-                    // console.log('data[19].weatherElement[4] object', data[19].weatherElement[4]);
-                    // console.log('data[19].weatherElement[4].time object', data[19].weatherElement[4].time);
-                    // console.log("data[19].weatherElement[4].time[0].parameter object", data[19].weatherElement[4].time[0].parameter);
-                    // console.log("data[19].weatherElement[4].time[0].parameter.parameterName object", data[19].weatherElement[4].time[0].parameter.parameterName);
-
-                    // let minP19 = data[19].weatherElement[2].time[0].parameter.parameterName;
-                    // let maxP19 = data[19].weatherElement[4].time[0].parameter.parameterName;
-                    // console.log('minP19', minP19);
-
-                    // minP.text(minP19);
-                    // maxP.text(maxP19);
-
-                    // 練習四 每個縣市 第一組 startTime 最低溫度 最高溫度
-
-                    // let sum = '';
-                    // $.each(data, function (key, value) {
-                    //     let minText = value.weatherElement[2].time[0].parameter.parameterName;
-                    //     let maxText = value.weatherElement[4].time[0].parameter.parameterName;
-                    //     sum += `
-                    //     ${value.locationName} => ${minText} - ${maxText} <br>
-                    //     `;
-                    //     console.log(sum);
-                    // });
-                    // myUl.append(sum);
-
-                    // 練習五 將資料放入boostrap5 table內顯示
-
                 
                     // console.log('data typeof', typeof (data));
                     $.each(data, function (key, value) {
                         console.log(key);
                         console.log(value.locationName);
 
-                        //https://stackoverflow.com/questions/1784780/how-to-break-out-of-jquery-each-loop
-
                         // mySelect
-                        // value.locationName
                             let textOption =`
                                 <option value="${value.locationName}"> ${key+1}-${value.locationName} </option>
                             `;
@@ -323,24 +287,6 @@
                              - 
                             ${value.weatherElement[4].time[2].parameter.parameterName} 
                              `;
-
-                            // let paramenter1 = `
-                            // ${value.weatherElement[0].time[0].parameter.parameterName}
-                            //  - 
-                            // ${value.weatherElement[0].time[0].parameter.parameterValue} 
-                            //  `;
-
-                            // let paramenter2 = `
-                            // ${value.weatherElement[0].time[1].parameter.parameterName}
-                            //  - 
-                            // ${value.weatherElement[0].time[1].parameter.parameterValue} 
-                            //  `;
-
-                            // let paramenter3 = `
-                            // ${value.weatherElement[0].time[2].parameter.parameterName}
-                            //  - 
-                            // ${value.weatherElement[0].time[2].parameter.parameterValue} 
-                            //  `;
 
                             let paramenterName1 = value.weatherElement[0].time[0].parameter.parameterName;
                             let paramenterName2 = value.weatherElement[0].time[1].parameter.parameterName;
