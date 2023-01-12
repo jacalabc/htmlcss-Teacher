@@ -12,6 +12,10 @@
         .w-3 {
             width: 3%;
         }
+
+        button {
+            margin-left: 10px;
+        }
     </style>
 
 </head>
@@ -20,7 +24,10 @@
     <div class="container-fluid mt-3">
         <h3 class="text-center">天氣預報資料</h3>
         <hr>
-        <button id="myBtn">Print</button>
+        <div class="text-center mb-5">
+            <button type="button" class="btn btn-primary" id="myBtn">Print</button>
+            <button type="button" class="btn btn-primary" id="newTaipeiBtn">新北市</button>
+        </div>
         <hr>
         <table class="table table-striped text-center">
             <thead>
@@ -32,11 +39,11 @@
                     <th><span id="time3">time3</span></th>
                 </tr>
             </thead>
-            <tbody id="myTbody">g
+            <tbody id="myTbody">
 
             </tbody>
         </table>
-        
+
     </div>
 
     <ul id="myUl">
@@ -71,6 +78,7 @@
 
             const myUl = $('#myUl');
             const myBtn = $('#myBtn');
+            const newTaipeiBtn = $('#newTaipeiBtn');
             const minP = $('#minP');
             const maxP = $('#maxP');
             const myTbody = $('#myTbody');
@@ -79,9 +87,86 @@
             const time2 = $('#time2');
             const time3 = $('#time3');
 
+            let data = {};
+
 
             myBtn.click(function () {
                 window.print();
+            });
+
+            newTaipeiBtn.click(function () {
+                console.log('data', data);
+                $.each(data, function (key, value) {
+
+
+
+
+                });
+
+                $.each(data, function (key, value) {
+                    // console.log(key);
+                    // console.log(value.locationName);
+
+                    if (value.locationName == "新北市") {
+                        console.log(value.locationName);
+                        // return; //continue
+
+
+                        // 練習一 縣市 + startTime
+                        if (key < 30) {
+                            let time1Text = `
+                            ${value.weatherElement[2].time[0].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[4].time[0].parameter.parameterName} 
+                             `;
+
+                            let time2Text = `
+                            ${value.weatherElement[2].time[1].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[4].time[1].parameter.parameterName} 
+                             `;
+
+                            let time3Text = `
+                            ${value.weatherElement[2].time[2].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[4].time[2].parameter.parameterName} 
+                             `;
+
+                            let paramenterName1 = value.weatherElement[0].time[0].parameter.parameterName;
+                            let paramenterName2 = value.weatherElement[0].time[1].parameter.parameterName;
+                            let paramenterName3 = value.weatherElement[0].time[2].parameter.parameterName;
+
+                            let paramenterValue1 = value.weatherElement[0].time[0].parameter.parameterValue;
+                            let paramenterValue2 = value.weatherElement[0].time[1].parameter.parameterValue;
+                            let paramenterValue3 = value.weatherElement[0].time[2].parameter.parameterValue;
+
+                            let textContext = `
+                            <tr>
+                                <td>${key + 1}</td>
+                                <td>${value.locationName}</td>
+                                <td>
+                                    ${time1Text} 
+                                    <img src="./day/${paramenterValue1}.svg" alt="${paramenterName1}" title="${paramenterName1}" width="50px">
+                                </td>
+                                <td>
+                                    ${time2Text}
+                                    <img src="./day/${paramenterValue2}.svg" alt="${paramenterName2}" title="${paramenterName2}" width="50px">
+                                </td>
+                                <td>
+                                    ${time3Text}
+                                    <img src="./day/${paramenterValue3}.svg" alt="${paramenterName3}" title="${paramenterName3}" width="50px">
+                                </td>
+                            </tr>
+                        `;
+                            myTbody.append(textContext);
+                        } else {
+                            return false;
+                        };
+
+                    }
+                });
+
+
             });
 
 
@@ -92,7 +177,7 @@
                 dataType: 'json',
                 success: function (res) {
                     console.log('res', res);
-                    let data = res.records.location;
+                    data = res.records.location;
                     console.log('data', data);
 
                     timeText1 = data[19].weatherElement[2].time[0].startTime;
@@ -157,7 +242,7 @@
                         //https://stackoverflow.com/questions/1784780/how-to-break-out-of-jquery-each-loop
 
                         // 練習一 縣市 + startTime
-                        if (key < 30    ) {
+                        if (key < 30) {
                             let time1Text = `
                             ${value.weatherElement[2].time[0].parameter.parameterName}
                              - 
