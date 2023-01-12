@@ -36,7 +36,7 @@
         <hr>
         <div class="text-center mb-5">
             <select name="" id="mySelect">
-                <option value=""></option>
+                
             </select>
             <button type="button" id="getSelect">getSelectBtn</button>
         </div>
@@ -87,6 +87,19 @@
         // https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0ECFB19-DA53-46EF-BC76-146F83535780
 
         $(function () {
+
+            // 練習一
+            // ajax data
+            // put select option
+
+            // each
+            // tBody append
+            // select append locationName
+
+            // 練習二
+            // getSelectBtn
+            // 抓select 新北市
+            // 條件新北市....
 
 
 
@@ -174,6 +187,8 @@
             const time1 = $('#time1');
             const time2 = $('#time2');
             const time3 = $('#time3');
+
+            const mySelect = $("#mySelect");
 
             let data = {};
 
@@ -272,12 +287,22 @@
 
                     // 練習五 將資料放入boostrap5 table內顯示
 
+                
                     // console.log('data typeof', typeof (data));
                     $.each(data, function (key, value) {
                         console.log(key);
                         console.log(value.locationName);
 
                         //https://stackoverflow.com/questions/1784780/how-to-break-out-of-jquery-each-loop
+
+                        // mySelect
+                        // value.locationName
+                            let textOption =`
+                                <option value="${value.locationName}"> ${key+1}-${value.locationName} </option>
+                            `;
+                            mySelect.append(textOption);
+                        
+                        // mySelect end
 
                         // 練習一 縣市 + startTime
                         if (key < 30) {

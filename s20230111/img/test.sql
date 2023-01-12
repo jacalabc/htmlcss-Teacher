@@ -7,6 +7,7 @@ WHERE `` = '';
 DELETE FROM `table` WHERE `` = '';
 
 
+
 INSERT INTO ``(``) VALUES
 (),
 ;
