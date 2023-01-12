@@ -27,6 +27,7 @@
         <div class="text-center mb-5">
             <button type="button" class="btn btn-primary" id="myBtn">Print</button>
             <button type="button" class="btn btn-primary" id="newTaipeiBtn">新北市</button>
+            <button type="button" class="btn btn-primary" id="taoyuanBtn">桃園市</button>
         </div>
         <hr>
         <table class="table table-striped text-center">
@@ -76,71 +77,36 @@
 
         $(function () {
 
-            const myUl = $('#myUl');
-            const myBtn = $('#myBtn');
-            const newTaipeiBtn = $('#newTaipeiBtn');
-            const minP = $('#minP');
-            const maxP = $('#maxP');
-            const myTbody = $('#myTbody');
-
-            const time1 = $('#time1');
-            const time2 = $('#time2');
-            const time3 = $('#time3');
-
-            let data = {};
-
-
-            myBtn.click(function () {
-                window.print();
-            });
-
-            newTaipeiBtn.click(function () {
-                console.log('data', data);
-                $.each(data, function (key, value) {
-
-
-
-
-                });
-
-                $.each(data, function (key, value) {
-                    // console.log(key);
-                    // console.log(value.locationName);
-
-                    if (value.locationName == "新北市") {
-                        console.log(value.locationName);
-                        // return; //continue
-
-
-                        // 練習一 縣市 + startTime
-                        if (key < 30) {
-                            let time1Text = `
+            function showData(key, value) {
+                // 練習一 縣市 + startTime
+                if (key < 30) {
+                    let time1Text = `
                             ${value.weatherElement[2].time[0].parameter.parameterName}
                              - 
                             ${value.weatherElement[4].time[0].parameter.parameterName} 
                              `;
 
-                            let time2Text = `
+                    let time2Text = `
                             ${value.weatherElement[2].time[1].parameter.parameterName}
                              - 
                             ${value.weatherElement[4].time[1].parameter.parameterName} 
                              `;
 
-                            let time3Text = `
+                    let time3Text = `
                             ${value.weatherElement[2].time[2].parameter.parameterName}
                              - 
                             ${value.weatherElement[4].time[2].parameter.parameterName} 
                              `;
 
-                            let paramenterName1 = value.weatherElement[0].time[0].parameter.parameterName;
-                            let paramenterName2 = value.weatherElement[0].time[1].parameter.parameterName;
-                            let paramenterName3 = value.weatherElement[0].time[2].parameter.parameterName;
+                    let paramenterName1 = value.weatherElement[0].time[0].parameter.parameterName;
+                    let paramenterName2 = value.weatherElement[0].time[1].parameter.parameterName;
+                    let paramenterName3 = value.weatherElement[0].time[2].parameter.parameterName;
 
-                            let paramenterValue1 = value.weatherElement[0].time[0].parameter.parameterValue;
-                            let paramenterValue2 = value.weatherElement[0].time[1].parameter.parameterValue;
-                            let paramenterValue3 = value.weatherElement[0].time[2].parameter.parameterValue;
+                    let paramenterValue1 = value.weatherElement[0].time[0].parameter.parameterValue;
+                    let paramenterValue2 = value.weatherElement[0].time[1].parameter.parameterValue;
+                    let paramenterValue3 = value.weatherElement[0].time[2].parameter.parameterValue;
 
-                            let textContext = `
+                    let textContext = `
                             <tr>
                                 <td>${key + 1}</td>
                                 <td>${value.locationName}</td>
@@ -158,17 +124,67 @@
                                 </td>
                             </tr>
                         `;
-                            myTbody.append(textContext);
-                        } else {
-                            return false;
-                        };
+                    myTbody.append(textContext);
+                } else {
+                    return false;
+                };
+            }
+
+            const myUl = $('#myUl');
+            const myBtn = $('#myBtn');
+            const newTaipeiBtn = $('#newTaipeiBtn');
+            const taoyuanBtn = $('#taoyuanBtn');
+            const minP = $('#minP');
+            const maxP = $('#maxP');
+            const myTbody = $('#myTbody');
+
+            const time1 = $('#time1');
+            const time2 = $('#time2');
+            const time3 = $('#time3');
+
+            let data = {};
+
+            let timeObj = {};
+
+            myBtn.click(function () {
+                window.print();
+            });
+
+            newTaipeiBtn.click(function () {
+                console.log('data', data);
+                myTbody.html('');
+                $.each(data, function (key, value) {
+                    // console.log(key);
+                    // console.log(value.locationName);
+
+                    if (value.locationName == "新北市") {
+                        console.log(value.locationName);
+                        // return; //continue
+
+
+                        showData(key, value);
 
                     }
                 });
-
-
             });
 
+            taoyuanBtn.click(function () {
+                console.log('data', data);
+                myTbody.html('');
+                $.each(data, function (key, value) {
+                    // console.log(key);
+                    // console.log(value.locationName);
+
+                    if (value.locationName == "桃園市") {
+                        console.log(value.locationName);
+                        // return; //continue
+
+
+                        showData(key, value);
+
+                    }
+                });
+            })
 
             // ajax 範本
             $.ajax({
