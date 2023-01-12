@@ -30,7 +30,6 @@
                     <th><span id="time1">time1</span> 低-高溫</th>
                     <th><span id="time2">time2</span> 低-高溫</th>
                     <th><span id="time3">time3</span> 低-高溫</th>
-                    <th><span id="paramenter"></span></th>
                 </tr>
             </thead>
             <tbody id="myTbody">
@@ -79,7 +78,6 @@
             const time2 = $('#time2');
             const time3 = $('#time3');
 
-            const paramenter = $('#paramenter');
 
             myBtn.click(function () {
                 window.print();
@@ -202,7 +200,6 @@
                                 <td>${time1Text} ${paramenter1}</td>
                                 <td>${time2Text} ${paramenter2}</td>
                                 <td>${time3Text} ${paramenter3}</td>
-                                <td>${paramenter}</td>
                             </tr>
                         `;
                             myTbody.append(textContext);
