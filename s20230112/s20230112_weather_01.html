@@ -31,6 +31,14 @@
             <button type="button" class="btn btn-primary select-btn" id="" data-location="高雄市">高雄市</button>
             <button type="button" class="btn btn-primary select-btn" id="" data-location="雲林縣">雲林縣</button>
             <button type="button" class="btn btn-primary" id="allBtn">ALL</button>
+            <button type="button" class="btn btn-primary" id="test" onclick="test();">test</button>
+        </div>
+        <hr>
+        <div class="text-center mb-5">
+            <select name="" id="mySelect">
+                <option value=""></option>
+            </select>
+            <button type="button" id="getSelect">getSelectBtn</button>
         </div>
         <hr>
         <table class="table table-striped text-center">
@@ -79,6 +87,9 @@
         // https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0ECFB19-DA53-46EF-BC76-146F83535780
 
         $(function () {
+
+
+
             function allData() {
                 $.each(data, function (key, value) {
                     showData(key, value);
