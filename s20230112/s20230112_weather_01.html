@@ -74,6 +74,10 @@
             const maxP = $('#maxP');
             const myTbody = $('#myTbody');
 
+            const time1 = $('#time1');
+            const time2 = $('#time2');
+            const time3 = $('#time3');
+
             myBtn.click(function () {
                 window.print();
             });
@@ -88,6 +92,14 @@
                     console.log('res', res);
                     let data = res.records.location;
                     console.log('data', data);
+
+                    timeText1 = data[19].weatherElement[2].time[0].startTime;
+                    timeText2 = data[19].weatherElement[2].time[1].startTime;
+                    timeText3 = data[19].weatherElement[2].time[2].startTime;
+                    time1.text(timeText1);
+                    time2.text(timeText2);
+                    time3.text(timeText3);
+
                     // console.log('data[0]', data[0]);
                     // console.log('data[0].locationName', data[0].locationName);
                     // console.log('data[0].locationName typeof', typeof (data[0].locationName));
