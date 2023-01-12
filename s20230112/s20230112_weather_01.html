@@ -30,6 +30,7 @@
                     <th><span id="time1">time1</span> 低-高溫</th>
                     <th><span id="time2">time2</span> 低-高溫</th>
                     <th><span id="time3">time3</span> 低-高溫</th>
+                    <th><span id="paramenter"></span></th>
                 </tr>
             </thead>
             <tbody id="myTbody">
@@ -77,6 +78,8 @@
             const time1 = $('#time1');
             const time2 = $('#time2');
             const time3 = $('#time3');
+
+            const paramenter = $('#paramenter');
 
             myBtn.click(function () {
                 window.print();
@@ -174,13 +177,32 @@
                             ${value.weatherElement[4].time[2].parameter.parameterName} 
                              `;
 
+                            let paramenter1 = `
+                            ${value.weatherElement[0].time[0].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[0].time[0].parameter.parameterValue} 
+                             `;
+
+                            let paramenter2 = `
+                            ${value.weatherElement[0].time[1].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[0].time[1].parameter.parameterValue} 
+                             `;
+
+                            let paramenter3 = `
+                            ${value.weatherElement[0].time[2].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[0].time[2].parameter.parameterValue} 
+                             `;
+
                             let textContext = `
                             <tr>
                                 <td>${key + 1}</td>
                                 <td>${value.locationName}</td>
-                                <td>${time1Text}</td>
-                                <td>${time2Text}</td>
-                                <td>${time3Text}</td>
+                                <td>${time1Text} ${paramenter1}</td>
+                                <td>${time2Text} ${paramenter2}</td>
+                                <td>${time3Text} ${paramenter3}</td>
+                                <td>${paramenter}</td>
                             </tr>
                         `;
                             myTbody.append(textContext);
