@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="container mt-3">
+    <div class="container-fluid mt-3">
         <h3 class="text-center">天氣預報資料</h3>
         <hr>
         <button id="myBtn">Print</button>
@@ -36,6 +36,7 @@
 
             </tbody>
         </table>
+        
     </div>
 
     <ul id="myUl">
@@ -156,7 +157,7 @@
                         //https://stackoverflow.com/questions/1784780/how-to-break-out-of-jquery-each-loop
 
                         // 練習一 縣市 + startTime
-                        if (key < 5) {
+                        if (key < 30    ) {
                             let time1Text = `
                             ${value.weatherElement[2].time[0].parameter.parameterName}
                              - 
@@ -175,31 +176,48 @@
                             ${value.weatherElement[4].time[2].parameter.parameterName} 
                              `;
 
-                            let paramenter1 = `
-                            ${value.weatherElement[0].time[0].parameter.parameterName}
-                             - 
-                            ${value.weatherElement[0].time[0].parameter.parameterValue} 
-                             `;
+                            // let paramenter1 = `
+                            // ${value.weatherElement[0].time[0].parameter.parameterName}
+                            //  - 
+                            // ${value.weatherElement[0].time[0].parameter.parameterValue} 
+                            //  `;
 
-                            let paramenter2 = `
-                            ${value.weatherElement[0].time[1].parameter.parameterName}
-                             - 
-                            ${value.weatherElement[0].time[1].parameter.parameterValue} 
-                             `;
+                            // let paramenter2 = `
+                            // ${value.weatherElement[0].time[1].parameter.parameterName}
+                            //  - 
+                            // ${value.weatherElement[0].time[1].parameter.parameterValue} 
+                            //  `;
 
-                            let paramenter3 = `
-                            ${value.weatherElement[0].time[2].parameter.parameterName}
-                             - 
-                            ${value.weatherElement[0].time[2].parameter.parameterValue} 
-                             `;
+                            // let paramenter3 = `
+                            // ${value.weatherElement[0].time[2].parameter.parameterName}
+                            //  - 
+                            // ${value.weatherElement[0].time[2].parameter.parameterValue} 
+                            //  `;
+
+                            let paramenterName1 = value.weatherElement[0].time[0].parameter.parameterName;
+                            let paramenterName2 = value.weatherElement[0].time[1].parameter.parameterName;
+                            let paramenterName3 = value.weatherElement[0].time[2].parameter.parameterName;
+
+                            let paramenterValue1 = value.weatherElement[0].time[0].parameter.parameterValue;
+                            let paramenterValue2 = value.weatherElement[0].time[1].parameter.parameterValue;
+                            let paramenterValue3 = value.weatherElement[0].time[2].parameter.parameterValue;
 
                             let textContext = `
                             <tr>
                                 <td>${key + 1}</td>
                                 <td>${value.locationName}</td>
-                                <td>${time1Text} ${paramenter1}</td>
-                                <td>${time2Text} ${paramenter2}</td>
-                                <td>${time3Text} ${paramenter3}</td>
+                                <td>
+                                    ${time1Text} 
+                                    <img src="./day/${paramenterValue1}.svg" alt="${paramenterName1}" title="${paramenterName1}" width="50px">
+                                </td>
+                                <td>
+                                    ${time2Text}
+                                    <img src="./day/${paramenterValue2}.svg" alt="${paramenterName2}" title="${paramenterName2}" width="50px">
+                                </td>
+                                <td>
+                                    ${time3Text}
+                                    <img src="./day/${paramenterValue3}.svg" alt="${paramenterName3}" title="${paramenterName3}" width="50px">
+                                </td>
                             </tr>
                         `;
                             myTbody.append(textContext);
