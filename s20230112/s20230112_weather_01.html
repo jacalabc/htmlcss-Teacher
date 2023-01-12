@@ -28,8 +28,8 @@
             <button type="button" class="btn btn-primary" id="myBtn">Print</button>
             <button type="button" class="btn btn-primary select-btn" id="newTaipeiBtn" data-location="新北市">新北市</button>
             <button type="button" class="btn btn-primary select-btn" id="taoyuanBtn" data-location="桃園市">桃園市</button>
-            <button type="button" class="btn btn-primary select-btn" id="taoyuanBtn" data-location="高雄市">高雄市</button>
-            <button type="button" class="btn btn-primary select-btn" id="taoyuanBtn" data-location="雲林縣">雲林縣</button>
+            <button type="button" class="btn btn-primary select-btn" id="" data-location="高雄市">高雄市</button>
+            <button type="button" class="btn btn-primary select-btn" id="" data-location="雲林縣">雲林縣</button>
             <button type="button" class="btn btn-primary" id="allBtn">ALL</button>
         </div>
         <hr>
@@ -85,21 +85,18 @@
 
                 });
             }
+
+            // fun1
             function eachShowData(locationName) {
                 $.each(data, function (key, value) {
-                    // console.log(key);
-                    // console.log(value.locationName);
-
                     if (value.locationName == locationName) {
                         console.log(value.locationName);
-                        // return; //continue
-
-
                         showData(key, value);
-
                     }
                 });
             }
+
+            //fun2
             function showData(key, value) {
                 // 練習一 縣市 + startTime
                 if (key < 30) {
