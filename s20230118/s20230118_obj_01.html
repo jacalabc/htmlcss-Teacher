@@ -115,30 +115,157 @@
 
             console.log('obj', obj);
 
+            $.ajax({
+                url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C0ECFB19-DA53-46EF-BC76-146F83535780",
+                type: "get",
+                dataType: 'json',
+                success: function (res) {
+                    console.log('res', res);
+                    data = res.records.location;
+                    console.log('data', data);
+
+                    // 1. create obj
+                    // 2. insert data
+
+                    //name data[0].locationName
+                    //hight data[0].weatherElement[4].time[0].parameter.parameterName
+                    //low data[0].weatherElement[4].time[0].parameter.parameterName
+                    //date data[0].weatherElement[2].time[0].parameter.parameterName
+                    //time data[0].weatherElement[4].time[0].startTime
+                    //time data[0].weatherElement[4].time[1].startTime
+                    //time data[0].weatherElement[4].time[2].startTime
+
+                    let name = data[0].locationName;
+                    let maxT = data[0].weatherElement[4].time[0].parameter.parameterName;
+                    let minT = data[0].weatherElement[4].time[0].parameter.parameterName;
+                    let date = data[0].weatherElement[2].time[0].parameter.parameterName;
+                    let time1 = data[0].weatherElement[4].time[0].startTime;
+                    let time2 = data[0].weatherElement[4].time[1].startTime;
+                    let time3 = data[0].weatherElement[4].time[2].startTime;
+
+                    console.log('name', name);
+                    console.log('maxT', maxT);
+                    console.log('minT', minT);
+                    console.log('date', date);
+                    console.log('time1', time1);
+                    console.log('time2', time2);
+                    console.log('time3', time3);
+
+
+
+
+
+
+                    timeText1 = data[19].weatherElement[2].time[0].startTime;
+                    timeText2 = data[19].weatherElement[2].time[1].startTime;
+                    timeText3 = data[19].weatherElement[2].time[2].startTime;
+                    time1.text(timeText1);
+                    time2.text(timeText2);
+                    time3.text(timeText3);
+
+                    // console.log('data typeof', typeof (data));
+                    $.each(data, function (key, value) {
+                        console.log(key);
+                        console.log(value.locationName);
+
+                        // mySelect
+                        let textOption = `
+                                <option value="${value.locationName}"> ${key + 1}-${value.locationName} </option>
+                            `;
+                        mySelect.append(textOption);
+
+                        // mySelect end
+
+                        // 練習一 縣市 + startTime
+                        if (key < 30) {
+                            let time1Text = `
+                            ${value.weatherElement[2].time[0].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[4].time[0].parameter.parameterName} 
+                             `;
+
+                            let time2Text = `
+                            ${value.weatherElement[2].time[1].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[4].time[1].parameter.parameterName} 
+                             `;
+
+                            let time3Text = `
+                            ${value.weatherElement[2].time[2].parameter.parameterName}
+                             - 
+                            ${value.weatherElement[4].time[2].parameter.parameterName} 
+                             `;
+
+                            let paramenterName1 = value.weatherElement[0].time[0].parameter.parameterName;
+                            let paramenterName2 = value.weatherElement[0].time[1].parameter.parameterName;
+                            let paramenterName3 = value.weatherElement[0].time[2].parameter.parameterName;
+
+                            let paramenterValue1 = value.weatherElement[0].time[0].parameter.parameterValue;
+                            let paramenterValue2 = value.weatherElement[0].time[1].parameter.parameterValue;
+                            let paramenterValue3 = value.weatherElement[0].time[2].parameter.parameterValue;
+
+                            let textContext = `
+                            <tr>
+                                <td>${key + 1}</td>
+                                <td>${value.locationName}</td>
+                                <td>
+                                    ${time1Text} 
+                                    <img src="./day/${paramenterValue1}.svg" alt="${paramenterName1}" title="${paramenterName1}" width="50px">
+                                </td>
+                                <td>
+                                    ${time2Text}
+                                    <img src="./day/${paramenterValue2}.svg" alt="${paramenterName2}" title="${paramenterName2}" width="50px">
+                                </td>
+                                <td>
+                                    ${time3Text}
+                                    <img src="./day/${paramenterValue3}.svg" alt="${paramenterName3}" title="${paramenterName3}" width="50px">
+                                </td>
+                            </tr>
+                        `;
+                            // myTbody.append(textContext);
+                        } else {
+                            return false;
+                        }
+
+
+                    });
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                }
+            });
+
             // getObj.location => array
-            let getObj = [
-                {
-                    'location': [
-                        '新北',
-                        '台中',
-                        '高雄'
-                    ]
-                }
-            ];
+            // let getObj = [
+            //     {
+            //         'location': [
+            //             '新北',
+            //             '台中',
+            //             '高雄'
+            //         ]
+            //     }
+            // ];
 
-            let getObj2 = [
-                {
-                    'location': [
-                        { 0: '新北' },
-                        { 1: '台中' },
-                        { 2: '高雄' }
-                    ],
-                }
-            ];
+            // let getObj2 = [
+            //     {
+            //         'location': [
+            //             {
+            //                 locationName: '新北',
+            //                 weatherElement: {
+
+            //                 },
+
+            //             },
+            //             { 1: '台中' },
+            //             { 2: '高雄' }
+            //         ],
+            //     }
+            // ];
 
 
-            console.log('getObj', getObj);
-            console.log('getObj2', getObj);
+            // console.log('getObj', getObj);
+            // console.log('getObj2', getObj);
         });
         // jq end
 
