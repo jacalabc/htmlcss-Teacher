@@ -143,20 +143,23 @@
                     let addObj = {};
 
                     //time[0]
-                    for (let i = 0; i < 3; i++) {
-                        let maxT = data[0].weatherElement[4].time[i].parameter.parameterName;
-                        let minT = data[0].weatherElement[2].time[i].parameter.parameterName;
-                        let time = data[0].weatherElement[4].time[i].startTime;
-                        let date = new Date(time).getDate();
-                        addObj = {
-                            'name': name,
-                            'maxT': maxT,
-                            'minT': minT,
-                            'date': date,
-                            'time': time,
+                    $.each(data, function (indexInArray, valueOfElement) {
+                        for (let i = 0; i < 3; i++) {
+                            let maxT = valueOfElement.weatherElement[4].time[i].parameter.parameterName;
+                            let minT = valueOfElement.weatherElement[2].time[i].parameter.parameterName;
+                            let time = valueOfElement.weatherElement[4].time[i].startTime;
+                            let date = new Date(time).getDate();
+                            addObj = {
+                                'name': valueOfElement.locationName,
+                                'maxT': maxT,
+                                'minT': minT,
+                                'date': date,
+                                'time': time,
+                            }
+                            newObj.push(addObj);
                         }
-                        newObj.push(addObj);
-                    }
+                    });
+
                     console.log('newObj', newObj);
 
                     timeText1 = data[19].weatherElement[2].time[0].startTime;
