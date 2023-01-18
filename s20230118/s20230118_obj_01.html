@@ -140,12 +140,48 @@
                     //date new Date(time1).getDate();
 
                     let name = data[0].locationName;
-                    let maxT = data[0].weatherElement[4].time[0].parameter.parameterName;
-                    let minT = data[0].weatherElement[2].time[0].parameter.parameterName;
+                    let addObj = {};
+
+                    //time[0]
+                    let maxTByTime1 = data[0].weatherElement[4].time[0].parameter.parameterName;
+                    let minTByTime1 = data[0].weatherElement[2].time[0].parameter.parameterName;
                     let time1 = data[0].weatherElement[4].time[0].startTime;
+                    let dateByTime1 = new Date(time1).getDate();
+                    addObj = {
+                        'name': name,
+                        'maxT': maxT,
+                        'minT': minT,
+                        'date': date,
+                        'time1': time1,
+                        'time2': time2,
+                        'time3': time3
+                    }
+
+                    newObj.push(addObj);
+
+                    //time[1]
+                    let maxTByTime2 = data[0].weatherElement[4].time[1].parameter.parameterName;
+                    let minTByTime2 = data[0].weatherElement[2].time[1].parameter.parameterName;
                     let time2 = data[0].weatherElement[4].time[1].startTime;
+                    let dateByTime2 = new Date(time2).getDate();
+                    addObj = {
+                        'name': name,
+                        'maxT': maxT,
+                        'minT': minT,
+                        'date': date,
+                        'time1': time1,
+                        'time2': time2,
+                        'time3': time3
+                    }
+
+                    newObj.push(addObj);
+
+                    //time[2]
+                    let maxTByTime3 = data[0].weatherElement[4].time[2].parameter.parameterName;
+                    let minTByTime3 = data[0].weatherElement[2].time[2].parameter.parameterName;
                     let time3 = data[0].weatherElement[4].time[2].startTime;
-                    let date = new Date(time1).getDate();
+
+                    let dateByTime3 = new Date(time3).getDate();
 
                     console.log('name', name);
                     console.log('maxT', maxT);
@@ -157,7 +193,7 @@
 
                     // newObj.push('aaa');
                     // newObj.push('bbb');
-                    let addObj = {
+                    addObj = {
                         'name': name,
                         'maxT': maxT,
                         'minT': minT,
