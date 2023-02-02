@@ -75,9 +75,11 @@
     <script>
 
         let sum = 0;
-        let time = 5;
+        let time = 10;
         let isGame = false;
         let timer;
+        let score = 2;
+        let goldTime = 5;
         const startBtn = $('#startBtn');
         const myBtn = $('#myBtn');
         const resetBtn = $('#resetBtn');
@@ -96,7 +98,7 @@
             // time > 21  => 2分
             // time < 21  => 3分
             if (isGame == true) {
-                sum = sum + 3;
+                sum = sum + score;
                 myP.text(sum);
             }
 
@@ -126,6 +128,13 @@
                 myTime.text(i);
                 i--;
                 nowTime = i;
+
+                if(i < goldTime){
+                    score = 3;
+                }else{
+                    score = 2;
+                }
+
                 if (i < 0) {
                     clearInterval(timer);
                     isGame = false;
@@ -136,7 +145,6 @@
                 }
             }, 1000);
         }
-
 
 
     </script>
