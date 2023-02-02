@@ -75,10 +75,15 @@
     <script>
 
         let sum = 0;
-        let time = 5;
+        let time = 60;
+        let isGame = false;
+        let nowTime = 0;
+        let timer;
         const startBtn = $('#startBtn');
         const myBtn = $('#myBtn');
+        const resetBtn = $('#resetBtn');
         const myP = $('#myP');
+        const myTime = $('#myTime');
         myBtn.hide();
         // 1. 當我進球時 +2 分
         // 2. 畫面分數 累加上去
@@ -91,27 +96,61 @@
 
             // time > 21  => 2分
             // time < 21  => 3分
+            if (isGame == true) {
+                sum = sum + 3;
+                myP.text(sum);
+            }
 
-            sum = sum + 3;
-            myP.text(sum);
+
         });
-        
+
+        resetBtn.click(() => {
+
+            if (isGame == false) {
+                let i = nowTime;
+                timer = setInterval(function () {
+                    console.log();
+                    console.log(i);
+                    myTime.text(i);
+                    i--;
+                    i = nowTime;
+                    if (i < 0) {
+                        clearInterval(timer);
+                        isGame = false;
+                        // myBtn.hide();
+                        // startBtn.show();
+                        // sum = 0;
+                    }
+                }, 1000);
+            } else {
+                clearInterval(timer);
+                isGame = false;
+
+            }
+        });
+
         startBtn.click(function () {
             timeGo();
             $(this).hide();
             myBtn.show();
         });
-        
+
         function timeGo() {
+            isGame = true;
             let i = time;
             console.log('timeGo ok');
             timer = setInterval(function () {
                 console.log();
                 console.log(i);
-                myP.text(i);
+                myTime.text(i);
                 i--;
+                nowTime = i;
                 if (i < 0) {
                     clearInterval(timer);
+                    isGame = false;
+                    // myBtn.hide();
+                    // startBtn.show();
+                    // sum = 0;
                 }
             }, 1000);
         }
