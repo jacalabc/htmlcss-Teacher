@@ -75,9 +75,8 @@
     <script>
 
         let sum = 0;
-        let time = 60;
+        let time = 5;
         let isGame = false;
-        let nowTime = 0;
         let timer;
         const startBtn = $('#startBtn');
         const myBtn = $('#myBtn');
@@ -105,28 +104,10 @@
         });
 
         resetBtn.click(() => {
-
-            if (isGame == false) {
-                let i = nowTime;
-                timer = setInterval(function () {
-                    console.log();
-                    console.log(i);
-                    myTime.text(i);
-                    i--;
-                    i = nowTime;
-                    if (i < 0) {
-                        clearInterval(timer);
-                        isGame = false;
-                        // myBtn.hide();
-                        // startBtn.show();
-                        // sum = 0;
-                    }
-                }, 1000);
-            } else {
-                clearInterval(timer);
-                isGame = false;
-
-            }
+            myBtn.text('進球');
+            myBtn.hide();
+            startBtn.show();
+            myP.text(0);
         });
 
         startBtn.click(function () {
@@ -150,7 +131,8 @@
                     isGame = false;
                     // myBtn.hide();
                     // startBtn.show();
-                    // sum = 0;
+                    myBtn.text('遊戲結束');
+                    sum = 0;
                 }
             }, 1000);
         }
