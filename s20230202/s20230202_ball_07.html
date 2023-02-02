@@ -100,7 +100,12 @@
         const myTime = $('#myTime');
         const mySpan = $('#mySpan');
         myBtn.hide();
-        mySpan.text(theHighScore);
+        console.log('theHighScore', theHighScore);
+        if (theHighScore == null) {
+            mySpan.text(0);
+        }else{
+            mySpan.text(theHighScore);
+        }
         // 1. 當我進球時 +2 分
         // 2. 畫面分數 累加上去
         // 3. 倒數計時 startBtn
