@@ -224,6 +224,12 @@
                 let myText = `目前的位置 ${window.scrollY}`
                 scrollReport.text(myText);
             })
+            var currentMousePos = { x: 0 , y: 0 };
+            $(document).mousemove(function (event) {
+                currentMousePos.x = event.pageX;
+                currentMousePos.y = event.pageY;
+                console.log('currentMousePos', currentMousePos);
+            });
 
             // $('#scrollReport').scroll(function () {
             //     console.log('scroll ok');
