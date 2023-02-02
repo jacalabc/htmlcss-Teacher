@@ -44,7 +44,8 @@
         #myTime {
             color: blue;
         }
-        button{
+
+        button {
             width: 200px;
             height: 50px;
         }
@@ -70,7 +71,20 @@
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script>
+    <script>  let sum = 0;
+        const myBtn = $('#myBtn');
+        const myP = $('#myP');
+        // 1. 當我進球時 +2 分
+        // 2. 畫面分數 累加上去
+
+      
+
+        myBtn.click(function(){
+            // console.log('btn ok');
+            sum = sum + 2;
+            myP.text(sum);
+        });
+
 
 
     </script>
