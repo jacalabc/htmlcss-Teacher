@@ -140,7 +140,15 @@
 
     <script>
         $(function () {
-            $('#scrollReport').css('color', 'red');
+            // $('#scrollReport').css('color', 'red');
+
+            // window
+            // console.log('window', window);
+            $(window).scroll(function () {
+                console.log('scroll ok');
+                console.log('window.scrollY', window.scrollY
+);
+            })
         });
     </script>
 
